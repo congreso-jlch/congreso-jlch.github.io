@@ -6,7 +6,7 @@
     <title>III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Definición de colores institucionales */
+        /* Paleta cromática institucional */
         :root {
             --color-lila: #9282ac;
             --color-verde: #b6bb69;
@@ -21,7 +21,7 @@
             padding: 0;
         }
 
-        /* Fondo morado/lila obligatorio para toda la página */
+        /* Fuerza el fondo morado en toda la página */
         html, body {
             background-color: var(--color-lila) !important;
             color: var(--color-crema);
@@ -29,7 +29,7 @@
             line-height: 1.6;
         }
 
-        /* Menú superior fijo */
+        /* Barra de Navegación */
         header {
             position: sticky;
             top: 0;
@@ -60,7 +60,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
         }
 
         .nav-menu a {
@@ -75,12 +75,11 @@
             color: var(--color-verde);
         }
 
-        /* Banner Superior - Ancho Completo */
+        /* Banner Principal - CUBRE TODO EL ANCHO DE LA PÁGINA */
         .hero-banner-full {
             width: 100%;
             background-color: var(--color-oscuro);
             text-align: center;
-            position: relative;
             border-bottom: 5px solid var(--color-verde);
         }
 
@@ -91,7 +90,7 @@
             display: block;
         }
 
-        /* Respaldo estético si la imagen tarda en cargar */
+        /* Respaldo si la imagen no se encuentra */
         .banner-backup {
             padding: 60px 20px;
             background-color: var(--color-oscuro);
@@ -99,23 +98,29 @@
         .banner-backup h1 {
             font-size: 2.2rem;
             color: var(--color-crema);
-            margin-bottom: 10px;
             text-transform: uppercase;
         }
-        .banner-backup p {
-            color: var(--color-verde);
-            font-size: 1.2rem;
-            font-style: italic;
-        }
 
-        /* Contenedor central de contenido */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
+        /* Contenedor de Secciones */
+        .section {
+            max-width: 1100px;
+            margin: 50px auto;
             padding: 0 20px;
+            scroll-margin-top: 90px;
         }
 
-        /* Tarjetas académicas oscuras para legibilidad */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-crema);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--color-verde);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tarjetas Académicas con Contraste Oscuro */
         .card-academica {
             background-color: rgba(38, 30, 45, 0.75) !important;
             border: 1px solid rgba(249, 246, 229, 0.2);
@@ -125,132 +130,65 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
-        .titulo-seccion {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            border-left: 5px solid var(--color-verde);
-            padding-left: 15px;
-            margin-bottom: 25px;
-            color: var(--color-crema);
-            letter-spacing: 0.5px;
-        }
-
         p {
             margin-bottom: 15px;
             font-size: 1rem;
-            color: var(--color-crema);
         }
 
-        ul {
-            padding-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Avisos y Fechas Destacadas */
-        .destacado-verde {
+        /* Bloque de Alerta de Plazos */
+        .alerta-cronograma {
             background-color: var(--color-verde);
             color: var(--color-oscuro);
-            padding: 20px;
-            border-radius: 6px;
+            padding: 18px;
+            border-radius: 4px;
             font-weight: 700;
             text-align: center;
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
         }
 
-        .aviso-proximamente {
-            background-color: rgba(182, 187, 105, 0.15);
-            border: 1px dashed var(--color-verde);
-            color: var(--color-verde);
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Estructura en Doble Columna */
+        .grid-dinamico {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        /* Grupo de Botones Flexibles */
-        .botones-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        .card-columna {
+            background-color: rgba(38, 30, 45, 0.5);
+            border: 1px solid rgba(249, 246, 229, 0.15);
+            border-radius: 6px;
+            padding: 30px;
         }
 
-        /* Botón de Envío (Verde) */
-        .btn-verde {
-            display: inline-block;
-            padding: 14px 28px;
-            background-color: var(--color-verde);
-            color: var(--color-oscuro);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .card-columna h3 {
+            color: var(--color-crema);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--color-verde);
+            padding-bottom: 5px;
         }
 
-        .btn-verde:hover {
-            background-color: var(--color-crema);
-            transform: translateY(-1px);
+        .card-columna ul {
+            padding-left: 20px;
+            margin: 15px 0;
         }
 
-        /* Botón de Descarga (Crema) */
-        .btn-crema {
-            display: inline-block;
-            padding: 14px 28px;
-            background-color: var(--color-crema);
-            color: var(--color-oscuro);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .card-columna li {
+            margin-bottom: 10px;
         }
 
-        .btn-crema:hover {
-            background-color: var(--color-verde);
-            transform: translateY(-1px);
-        }
-
-        /* Botón Deshabilitado transitorio */
-        .btn-deshabilitado {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: rgba(249, 246, 229, 0.2);
-            color: rgba(249, 246, 229, 0.4);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-align: center;
-            border: 1px solid rgba(249, 246, 229, 0.1);
-            cursor: not-allowed;
-        }
-
-        /* Tabla de Valores */
+        /* Tabla de Aranceles */
         .tabla-valores {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 15px 0;
             background-color: rgba(255, 255, 255, 0.05);
         }
 
         .tabla-valores th, .tabla-valores td {
-            padding: 12px 15px;
+            padding: 12px 14px;
             text-align: left;
             border-bottom: 1px solid rgba(249, 246, 229, 0.2);
         }
@@ -260,194 +198,4 @@
             color: var(--color-crema);
         }
 
-        /* Recuadro de Previsualización */
-        .previsualizacion {
-            background-color: var(--color-crema);
-            color: var(--color-oscuro);
-            padding: 25px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            margin-top: 25px;
-            border-left: 6px solid var(--color-lila);
-        }
-
-        .previsualizacion h4 {
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            color: var(--color-oscuro);
-        }
-
-        .previsualizacion li {
-            color: var(--color-oscuro);
-        }
-
-        /* Logos institucionales */
-        .container-logos {
-            width: 100%;
-            background-color: var(--blanco);
-            line-height: 0;
-            margin-top: 50px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-oscuro);
-            color: var(--color-crema);
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 0.85rem;
-        }
-
-        footer p {
-            margin-bottom: 6px;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
-            .botones-group {
-                flex-direction: column;
-            }
-            .btn-verde, .btn-crema, .btn-deshabilitado {
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <nav class="nav-container">
-            <a href="#" class="logo-texto">III Congreso Jóvenes Lingüistas</a>
-            <ul class="nav-menu">
-                <li><a href="#presentacion">Presentación</a></li>
-                <li><a href="#circular">Primera Circular</a></li>
-                <li><a href="#fechas-valores">Fechas y Valores</a></li>
-                <li><a href="#pago">Inscripción</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="hero-banner-full">
-        <img src="./banner.jpg" alt="III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026" class="hero-img" onerror="this.style.display='none'; document.getElementById('backup-text').style.display='block';">
-        <div id="backup-text" class="banner-backup" style="display:none;">
-            <h1>Horizontes Plurales</h1>
-            <p>III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026</p>
-        </div>
-    </div>
-
-    <div class="container">
-
-        <section class="card-academica" id="presentacion">
-            <h2 class="titulo-seccion">Presentación</h2>
-            <p>La <strong>Asociación de Jóvenes Lingüistas de Chile</strong> junto a las y los estudiantes de pregrado y posgrado de la <strong>Universidad Metropolitana de Ciencias de la Educación</strong>, la <strong>Pontificia Universidad Católica de Chile</strong> y la <strong>Universidad Católica Silva Henríquez</strong>, invitan a estudiantes de lingüística de todo Chile a participar en el encuentro académico:</p>
-            
-            <p style="font-size: 1.15rem; text-align: center; margin: 25px 0; font-weight: 700; color: var(--color-verde);">
-                "Horizontes Plurales: Nuevas miradas lingüísticas desde el Sur Global"
-            </p>
-
-            <p>Esta actividad se realizará de manera presencial en la ciudad de Santiago de Chile los días <strong>2, 3 y 4 de diciembre de 2026</strong>, contemplando actividades tanto en la sede de la Universidad Metropolitana de Ciencias de la Educación como en el Campus San Joaquín de la Pontificia Universidad Católica de Chile.</p>
-            
-            <p><strong>Objetivos del encuentro:</strong></p>
-            <ul>
-                <li>Ofrecer un espacio de encuentro y diálogo para investigadores noveles (estudiantes de pre y posgrado del país).</li>
-                <li>Impulsar el planteamiento de nuevas preguntas y perspectivas sobre los fenómenos del lenguaje e integrar la diversidad de marcos conceptuales.</li>
-                <li>Crear redes de colaboración entre nuevos investigadores.</li>
-            </ul>
-        </section>
-
-        <section class="card-academica" id="circular">
-            <h2 class="titulo-seccion">Convocatoria y Envío de Resúmenes</h2>
-            <p>Se convoca a la presentación de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, las cuales serán evaluadas bajo sistema de arbitraje ciego. Todas las actividades se realizarán en español.</p>
-            
-            <div class="botones-group">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfne2cOlVb-JjJKx0oLdZvHYGvGSm0CA6Oq1oe2evh3E0Leyw/viewform" target="_blank" class="btn-verde">📩 Formulario de Envío de Resúmenes</a>
-                
-                <a href="./III_Congreso_JLCH_Primera_circular.pdf" download="III_Congreso_JLCH_Primera_circular.pdf" class="btn-crema">⬇️ Descargar Primera Circular (PDF)</a>
-            </div>
-
-            <div class="previsualizacion">
-                <h4>🔍 Resumen de requisitos (Previsualización):</h4>
-                <ul style="margin-bottom:0; margin-top:10px;">
-                    <li><strong>Estructura del resumen:</strong> Debe incluir problematización, objetivo, metodología, hallazgos preliminares o esperados y relevancia del estudio.</li>
-                    <li><strong>Extensión:</strong> Estrictamente entre 250 y 350 palabras (sin contar título ni referencias).</li>
-                    <li><strong>Normativa:</strong> De 3 a 6 referencias bibliográficas citadas rigurosamente en formato <strong>APA 7.ª edición</strong>, más 3 a 5 palabras clave.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="card-academica" id="fechas-valores">
-            <h2 class="titulo-seccion">Fechas Importantes y Valores</h2>
-            
-            <div class="destacado-verde">
-                ⏰ Plazo límite para recepción de resúmenes: hasta el 29 de mayo de 2026
-            </div>
-            
-            <p>• <strong>Primera notificación de aceptación:</strong> 3 de julio de 2026 (fecha estimada).</p>
-
-            <h3 style="margin-top: 25px; color: var(--color-crema);">Costos de Inscripción</h3>
-            <table class="tabla-valores">
-                <thead>
-                    <tr>
-                        <th>Categoría</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Asistente general</td>
-                        <td>$20.000</td>
-                    </tr>
-                    <tr>
-                        <td>Expositores (Estudiantes de pregrado)</td>
-                        <td>$25.000</td>
-                    </tr>
-                    <tr>
-                        <td>Expositores (Estudiantes de postgrado y egresados)</td>
-                        <td>$35.000</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p style="font-size: 0.9rem; color: var(--color-verde); font-weight: 700; margin-top: 15px;">
-                💡 Nota relevante: Los miembros activos de la Asociación de Jóvenes Lingüistas disponen de un 20% de descuento en todos los aranceles.
-            </p>
-        </section>
-
-        <section class="card-academica" id="pago" style="text-align: center;">
-            <h2 class="titulo-seccion" style="display: block; text-align: left;">Inscripciones y Pagos</h2>
-            
-            <div class="aviso-proximamente">
-                ⚠️ El botón de pago electrónico se encuentra temporalmente en mantenimiento y estará completamente habilitado a la brevedad.
-            </div>
-
-            <p style="margin-bottom: 25px; opacity: 0.9;">
-                Una vez habilitada la pasarela, los asistentes y expositores aceptados podrán pagar de forma segura mediante tarjetas bancarias o transferencia:
-            </p>
-            
-            <div class="btn-deshabilitado">💳 Botón de Pago (Próximamente Habilitado)</div>
-            
-            <p style="font-size: 0.85rem; margin-top: 25px; opacity: 0.8;">
-                Consultas o dudas institucionales: <strong>congresojlch@gmail.com</strong><br>
-                Instagram: @horizontespluralesjlch | @joveneslinguistaschile
-            </p>
-        </section>
-
-    </div>
-
-    <div class="container-logos">
-        <img src="./instituciones.jpg" alt="Instituciones Colaboradoras: UMCE, PUC, UCSH" class="hero-img" onerror="this.style.display='none';">
-    </div>
-
-    <footer>
-        <p><strong>III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026</strong></p>
-        <p>Santiago de Chile • 2, 3 y 4 de diciembre</p>
-    </footer>
-
-</body>
-</html>
+        /* Botones de Acción */
