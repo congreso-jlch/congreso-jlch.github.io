@@ -29,7 +29,7 @@
             line-height: 1.6;
         }
 
-        /* Navegación */
+        /* Navegación Responsiva */
         header {
             position: sticky;
             top: 0;
@@ -46,6 +46,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+            flex-wrap: wrap; /* Permite que baje en celulares */
         }
 
         .logo-texto {
@@ -61,6 +62,7 @@
             display: flex;
             list-style: none;
             gap: 25px;
+            flex-wrap: wrap; /* Si no cabe en pantallas medianas, se acomoda solo */
         }
 
         .nav-menu a {
@@ -69,6 +71,8 @@
             font-size: 0.85rem;
             font-weight: 600;
             transition: color 0.2s;
+            display: inline-block;
+            padding: 5px 0;
         }
 
         .nav-menu a:hover {
@@ -148,7 +152,7 @@
             font-size: 1rem;
         }
 
-        /* Flexbox simétrico al 50% sin desbordes */
+        /* Flexbox Responsivo */
         .convocatoria-flex {
             display: flex;
             gap: 35px;
@@ -163,7 +167,22 @@
             justify-content: space-between;
         }
 
-        /* Botones de acción */
+        /* Contenedor responsivo para tablas */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 15px 0;
+        }
+
+        /* Botones de acción adaptables */
+        .botones-wrapper {
+            display: flex; 
+            gap: 15px; 
+            width: 100%;
+            flex-wrap: wrap; /* Se apilan si la pantalla es muy chica */
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -177,6 +196,8 @@
             cursor: pointer;
             font-size: 0.95rem;
             flex: 1;
+            min-width: 180px; /* Evita que queden excesivamente colapsados */
+            text-align: center;
         }
 
         .btn-verde { 
@@ -208,6 +229,7 @@
             text-align: center;
             border: 1px solid rgba(249, 246, 229, 0.1);
             cursor: not-allowed;
+            width: 100%;
         }
 
         .aviso-proximamente {
@@ -249,6 +271,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
+        }
+
+        /* Animación para la flechita del acordeón */
+        .eje-btn span {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .eje-box.activo .eje-btn span {
+            transform: rotate(180deg);
         }
 
         .eje-content {
@@ -269,7 +302,6 @@
         table { 
             width: 100%; 
             border-collapse: collapse; 
-            margin: 15px 0; 
         }
         th, td { 
             padding: 14px 15px; 
@@ -281,7 +313,7 @@
             font-weight: 600;
         }
 
-        /* Requisitos más grandes e impactantes */
+        /* Requisitos */
         .previsualizacion-grande {
             background-color: var(--color-crema);
             color: var(--color-oscuro);
@@ -290,6 +322,7 @@
             font-size: 1.05rem; 
             border-left: 6px solid var(--color-verde);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            height: 100%; /* Para que se nivele con la columna de texto */
         }
 
         .previsualizacion-grande h4 {
@@ -330,15 +363,71 @@
             border-top: 2px solid rgba(249, 246, 229, 0.05);
         }
 
-        @media (max-width: 900px) {
+        /* ========================================================
+           MEDIA QUERIES AVANZADAS PARA MÓVILES Y TABLETS 
+           ======================================================== */
+        
+        /* Ajustes para pantallas medianas (Tablets y Laptops chicas) */
+        @media (max-width: 950px) {
             .convocatoria-flex { 
                 flex-direction: column; 
+                gap: 25px;
             }
             .columna-mitad {
                 width: 100%;
             }
+            .card-academica {
+                padding: 30px 20px; /* Menos espacio interno inútil */
+            }
             .fecha-hero h2 { 
-                font-size: 1.7rem; 
+                font-size: 2rem; 
+            }
+            
+            /* Ajuste para la línea divisoria de la sección de aranceles */
+            #aranceles .columna-mitad:last-child {
+                padding-left: 0 !important;
+                padding-top: 20px;
+                border-left: none !important;
+                border-top: 1px solid rgba(249, 246, 229, 0.1);
+            }
+        }
+
+        /* Ajustes críticos para Celulares (Pantallas de menos de 600px) */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 10px;
+            }
+
+            .nav-menu {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 0.75rem; /* Letra un poquito más pequeña para que quepa en una sola línea */
+            }
+
+            .fecha-hero h2 { 
+                font-size: 1.4rem; 
+            }
+            
+            .fecha-hero p {
+                font-size: 1rem;
+            }
+
+            .titulo-seccion {
+                font-size: 1.3rem;
+            }
+
+            .btn {
+                width: 100%; /* Botones a ancho completo para que sea fácil tocarlos con el dedo */
+            }
+            
+            th, td {
+                padding: 10px 8px; /* Tablas más compactas en celulares */
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -384,7 +473,7 @@
             <div class="convocatoria-flex">
                 <div class="columna-mitad">
                     <div>
-                        <p>Se convoca a la presentación de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, las cuales serán evaluadas bajo sistema de arbitraje ciego. Todas las actividades y envíos se realizarán en español.</p>
+                        <p>Se convoca a la presentation de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, las cuales serán evaluadas bajo sistema de arbitraje ciego. Todas las actividades y envíos se realizarán en español.</p>
                     </div>
                     
                     <div style="margin: 20px 0; background-color: rgba(182, 187, 105, 0.12); border-left: 4px solid var(--color-verde); padding: 15px; border-radius: 4px;">
@@ -392,7 +481,7 @@
                         <strong style="font-size: 1.1rem; color: var(--color-crema);">Hasta el 29 de mayo de 2026</strong>
                     </div>
 
-                    <div style="display: flex; gap: 15px; width: 100%;">
+                    <div class="botones-wrapper">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfne2cOlVb-JjJKx0oLdZvHYGvGSm0CA6Oq1oe2evh3E0Leyw/viewform" target="_blank" class="btn btn-verde">📩 Enviar Resumen</a>
                         <a href="./III_Congreso_JLCH_Primera_circular.pdf" download="III_Congreso_JLCH_Primera_circular.pdf" class="btn btn-crema">⬇️ Descargar Circular</a>
                     </div>
@@ -476,28 +565,30 @@
             <h2 class="titulo-seccion">Costos e Inscripción</h2>
             <div class="convocatoria-flex">
                 <div class="columna-mitad">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Categoría de Inscripción</th>
-                                <th>Arancel</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Asistente general</td>
-                                <td>$20.000</td>
-                            </tr>
-                            <tr>
-                                <td>Expositores Estudiantes de Pregrado</td>
-                                <td>$25.000</td>
-                            </tr>
-                            <tr>
-                                <td>Expositores Estudiantes de Postgrado y Egresados</td>
-                                <td>$35.000</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Categoría de Inscripción</th>
+                                    <th>Arancel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Asistente general</td>
+                                    <td>$20.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Expositores Estudiantes de Pregrado</td>
+                                    <td>$25.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Expositores Estudiantes de Postgrado y Egresados</td>
+                                    <td>$35.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p style="color:var(--color-verde); font-weight:700; font-size:0.9rem">💡 Descuento: Los miembros activos de la Asociación de Jóvenes Lingüistas cuentan con un 20% de rebaja en los valores.</p>
                 </div>
                 <div class="columna-mitad" style="padding-left: 25px; border-left: 1px solid rgba(249, 246, 229, 0.1); justify-content: center;">
@@ -507,45 +598,42 @@
             </div>
         </section>
 
-        <section class="card-academica" id="inscripcion" style="text-align:center">
-            <h2 class="titulo-seccion" style="text-align:left">Registro e Inscripción</h2>
-            
+        <section class="card-academica" id="inscripcion">
+            <h2 class="titulo-seccion">Inscripciones</h2>
             <div class="aviso-proximamente">
-                ⚠️ El proceso de inscripciones y la plataforma de pago electrónico estarán completamente disponibles una vez que se hayan enviado las cartas oficiales de aceptación de ponencias y pósteres académicos (estimado a contar de julio de 2026).
+                Pagar arancel de inscripción (Disponible a partir de julio de 2026)
             </div>
-            
-            <p style="margin-bottom: 30px; opacity: 0.95;">
-                Tras recibir la confirmación de aceptación, los expositores y el público general con derecho a certificación podrán procesar su pago seguro mediante Webpay o transferencia bancaria directa.
-            </p>
-            
-            <div class="btn-deshabilitado">💳 Botón de Pago Próximamente Habilitado</div>
+            <button class="btn-deshabilitado" disabled>Formulario de Pago No Disponible</button>
         </section>
-
-    </div>
-
-    <div class="container-logos">
-        <img src="./instituciones.jpg" alt="Instituciones patrocinadoras" class="logos-img" onerror="this.style.display='none';">
+        
     </div>
 
     <footer>
-        <p><strong>III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026</strong></p>
-        <p>Contacto institucional: congresojlch@gmail.com | Instagram: @horizontespluralesjlch</p>
+        <p>© 2026 Asociación de Jóvenes Lingüistas de Chile. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- SCRIPT PARA HACER FUNCIONAR EL ACORDEÓN -->
     <script>
-        document.querySelectorAll('.eje-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const content = this.nextElementSibling;
+        document.querySelectorAll('.eje-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const box = button.parentElement;
+                const content = button.nextElementSibling;
                 
-                if (content.style.display === 'block') {
+                // Cierra los otros elementos abiertos para un efecto limpio (opcional)
+                document.querySelectorAll('.eje-box').forEach(otherBox => {
+                    if (otherBox !== box && otherBox.classList.contains('activo')) {
+                        otherBox.classList.remove('activo');
+                        otherBox.querySelector('.eje-content').style.display = 'none';
+                    }
+                });
+
+                // Alterna el estado del elemento clickeado
+                if (box.classList.contains('activo')) {
+                    box.classList.remove('activo');
                     content.style.display = 'none';
-                    this.querySelector('span').textContent = '▼';
                 } else {
-                    document.querySelectorAll('.eje-content').forEach(c => c.style.display = 'none');
-                    document.querySelectorAll('.eje-btn span').forEach(s => s.textContent = '▼');
-                    
+                    box.classList.add('activo');
                     content.style.display = 'block';
-                    this.querySelector('span').textContent = '▲';
                 }
             });
         });
