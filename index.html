@@ -11,7 +11,6 @@
             --color-verde: #b6bb69;
             --color-crema: #f9f6e5;
             --color-oscuro: #261e2d; 
-            --blanco: #ffffff;
         }
 
         * {
@@ -22,9 +21,8 @@
 
         body {
             background-color: var(--color-lila);
-            /* Sugerencia: Textura que emula un manuscrito antiguo o pergamino ligero */
-            background-image: radial-gradient(rgba(38, 30, 45, 0.1) 1px, transparent 0),
-                              linear-gradient(rgba(249, 246, 229, 0.05) 1px, transparent 0);
+            background-image: radial-gradient(rgba(38, 30, 45, 0.12) 1px, transparent 0),
+                              linear-gradient(rgba(249, 246, 229, 0.04) 1px, transparent 0);
             background-size: 20px 20px, 40px 40px;
             color: var(--color-crema);
             font-family: 'Montserrat', sans-serif;
@@ -90,7 +88,7 @@
             display: block;
         }
 
-        /* FECHA DESTACADA EN GRANDE CON REAJUSTE DE UNIVERSIDADES */
+        /* Sección de Fecha Destacada */
         .fecha-hero {
             background-color: var(--color-verde);
             color: var(--color-oscuro);
@@ -105,7 +103,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 5px;
-            text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.2);
         }
 
         .fecha-hero p {
@@ -114,7 +112,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Contenedores Principales de Información */
+        /* Contenedores de Información Ampliados */
         .container {
             max-width: 1150px;
             margin: 40px auto;
@@ -128,13 +126,11 @@
             padding: 45px;
             margin-bottom: 40px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
-        /* Sugerencia viva: Un leve brillo oliva al interactuar con los recuadros principales */
         .card-academica:hover {
-            border-color: rgba(182, 187, 105, 0.4);
-            box-shadow: 0 20px 40px rgba(38, 30, 45, 0.5);
+            border-color: rgba(182, 187, 105, 0.3);
         }
 
         .titulo-seccion {
@@ -152,19 +148,27 @@
             font-size: 1rem;
         }
 
-        /* Estructura Equilibrada en Doble Columna */
-        .grid-dos {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+        /* Flexbox simétrico al 50% sin desbordes */
+        .convocatoria-flex {
+            display: flex;
             gap: 35px;
             align-items: stretch;
         }
 
+        .columna-mitad {
+            flex: 1;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .card-inner {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.04);
+            padding: 30px;
             border-radius: 8px;
             border: 1px solid rgba(249, 246, 229, 0.1);
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -175,14 +179,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
+            padding: 14px 24px;
             border-radius: 4px;
             font-weight: 700;
             text-decoration: none;
             transition: background-color 0.2s, transform 0.1s;
             border: none;
             cursor: pointer;
+            font-size: 0.95rem;
+            flex: 1;
         }
 
         .btn-verde { 
@@ -191,7 +196,6 @@
         }
         .btn-verde:hover { 
             background-color: var(--color-crema); 
-            transform: translateY(-1px);
         }
         
         .btn-crema { 
@@ -200,10 +204,9 @@
         }
         .btn-crema:hover { 
             background-color: var(--color-verde); 
-            transform: translateY(-1px);
         }
 
-        /* Botón de pago en su formato transitorio e integrado original */
+        /* Botón de pago transitorio deshabilitado */
         .btn-deshabilitado {
             display: inline-block;
             padding: 15px 40px;
@@ -218,7 +221,6 @@
             cursor: not-allowed;
         }
 
-        /* Aviso de pago según especificaciones del envío de cartas */
         .aviso-proximamente {
             background-color: rgba(182, 187, 105, 0.15);
             border: 1px dashed var(--color-verde);
@@ -238,7 +240,6 @@
             margin-bottom: 10px;
             border-radius: 6px;
             overflow: hidden;
-            transition: background-color 0.2s;
         }
 
         .eje-box:hover {
@@ -270,13 +271,9 @@
             background-color: rgba(0, 0, 0, 0.15);
         }
 
-        .eje-content ul {
-            padding-left: 20px;
+        .eje-content p {
             margin-top: 10px;
-        }
-
-        .eje-content li {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         /* Tablas */
@@ -295,33 +292,37 @@
             font-weight: 600;
         }
 
-        /* Previsualización interna de requisitos */
-        .previsualizacion {
+        /* Requisitos más grandes e impactantes */
+        .previsualizacion-grande {
             background-color: var(--color-crema);
             color: var(--color-oscuro);
-            padding: 20px;
+            padding: 25px;
             border-radius: 6px;
-            font-size: 0.9rem;
-            border-left: 6px solid var(--color-lila);
+            font-size: 1.05rem; 
+            border-left: 6px solid var(--color-verde);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .previsualizacion h4 {
-            margin-bottom: 8px;
+        .previsualizacion-grande h4 {
+            margin-bottom: 12px;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 700;
-        }
-
-        .previsualizacion li {
+            letter-spacing: 0.5px;
             color: var(--color-oscuro);
-            margin-bottom: 5px;
         }
 
-        /* Logos y Pie de Página */
+        .previsualizacion-grande li {
+            color: var(--color-oscuro);
+            margin-bottom: 8px;
+        }
+
+        /* Fondo transparente para fundir la imagen de logos de forma natural */
         .container-logos { 
             width: 100%; 
-            background-color: var(--blanco); 
-            padding: 20px 0; 
+            background-color: transparent; 
+            padding: 30px 0; 
+            margin-top: 20px;
         }
         .logos-img {
             max-width: 1100px;
@@ -329,6 +330,7 @@
             margin: 0 auto;
             width: 100%;
             height: auto;
+            opacity: 0.9;
         }
 
         footer { 
@@ -340,8 +342,11 @@
         }
 
         @media (max-width: 900px) {
-            .grid-dos { 
-                grid-template-columns: 1fr; 
+            .convocatoria-flex { 
+                flex-direction: column; 
+            }
+            .columna-mitad {
+                width: 100%;
             }
             .fecha-hero h2 { 
                 font-size: 1.7rem; 
@@ -365,7 +370,7 @@
     </header>
 
     <div class="hero-banner-full">
-        <img src="./banner.jpg" alt="Banner Horizontes Plurales" class="hero-img" onerror="this.style.opacity='0.4';">
+        <img src="./banner.jpg" alt="Banner Horizontes Plurales" class="hero-img">
     </div>
 
     <div class="fecha-hero">
@@ -387,30 +392,31 @@
         <section class="card-academica" id="convocatoria">
             <h2 class="titulo-seccion">Convocatoria de Resúmenes</h2>
             
-            <div class="grid-dos">
-                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="convocatoria-flex">
+                <div class="columna-mitad">
                     <div>
                         <p>Se convoca a la presentación de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, las cuales serán evaluadas bajo sistema de arbitraje ciego. Todas las actividades y envíos se realizarán en español.</p>
                     </div>
                     
-                    <div style="margin: 20px 0; background-color: rgba(182, 187, 105, 0.15); border-left: 4px solid var(--color-verde); padding: 15px; border-radius: 4px;">
+                    <div style="margin: 20px 0; background-color: rgba(182, 187, 105, 0.12); border-left: 4px solid var(--color-verde); padding: 15px; border-radius: 4px;">
                         <span style="color: var(--color-verde); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; display: block; margin-bottom: 4px; letter-spacing: 0.5px;">Plazo Máximo de Envío:</span>
                         <strong style="font-size: 1.1rem; color: var(--color-crema);">Hasta el 29 de mayo de 2026</strong>
                     </div>
 
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 15px; width: 100%;">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfne2cOlVb-JjJKx0oLdZvHYGvGSm0CA6Oq1oe2evh3E0Leyw/viewform" target="_blank" class="btn btn-verde">📩 Enviar Resumen</a>
-                        <a href="./III_Congreso_JLCH_Primera_circular.pdf" download="III_Congreso_JLCH_Primera_circular.pdf" class="btn btn-crema">⬇️ Descargar Circular (PDF)</a>
+                        <a href="./III_Congreso_JLCH_Primera_circular.pdf" download="III_Congreso_JLCH_Primera_circular.pdf" class="btn btn-crema">⬇️ Descargar Circular</a>
                     </div>
                 </div>
 
-                <div class="card-inner">
-                    <div class="previsualizacion">
-                        <h4>🔍 Directrices Editoriales</h4>
+                <div class="columna-mitad">
+                    <div class="previsualizacion-grande">
+                        <h4>🔍 Directrices de Envío</h4>
                         <ul style="padding-left: 15px; margin-bottom: 0;">
-                            <li><strong>Extensión:</strong> 250 a 350 palabras.</li>
-                            <li><strong>Estructura:</strong> Problematización, objetivo, metodología, hallazgos esperados y relevancia.</li>
-                            <li><strong>Formatos:</strong> 3 a 6 referencias clave (APA 7.ª ed) y de 3 a 5 palabras clave.</li>
+                            <li><strong>Extensión:</strong> Entre 250 y 350 palabras.</li>
+                            <li><strong>Estructura obligatoria:</strong> Problematización, objetivo, metodología, hallazgos esperados y relevancia del estudio.</li>
+                            <li><strong>Formatos clave:</strong> De 3 a 6 referencias bibliográficas citadas en formato APA 7.ª edición.</li>
+                            <li><strong>Palabras clave:</strong> Entre 3 y 5 descriptores.</li>
                         </ul>
                     </div>
                 </div>
@@ -418,149 +424,13 @@
         </section>
 
         <section class="card-academica" id="ejes">
-            <h2 class="titulo-seccion">Áreas Temáticas Sugeridas</h2>
-            <p style="margin-bottom:20px">Selecciona un área para conocer las líneas específicas contempladas en la convocatoria:</p>
+            <h2 class="titulo-seccion">Áreas Temáticas</h2>
+            <p style="margin-bottom:20px">Selecciona un área temática para conocer las líneas contempladas en la convocatoria:</p>
             
             <div class="eje-box">
-                <button class="eje-btn">1. Fonética, Fonología y Morfosintaxis <span>▼</span></button>
-                <div class="eje-content">
-                    <ul>
-                        <li>Estudios descriptivos y teóricos del sistema lingüístico en todos sus niveles.</li>
-                        <li>Análisis sincrónicos o diacrónicos de las estructuras morfológicas y sintácticas.</li>
-                    </ul>
-                </div>
+                <button class="eje-btn">Estudios del discurso, estudios críticos del discurso y sociolingüística <span>▼</span></button>
+                <div class="eje-content"><p>Línea de investigación orientada a los análisis críticos, estructurales y variacionistas del lenguaje en contextos sociales e institucionales.</p></div>
             </div>
 
             <div class="eje-box">
-                <button class="eje-btn">2. Sociolingüística, Dialectología y Lingüística Histórica <span>▼</span></button>
-                <div class="eje-content">
-                    <ul>
-                        <li>Variación lingüística vinculada a factores sociales, situacionales o contextuales.</li>
-                        <li>Estudios dialectales del español y fenómenos de contacto de lenguas.</li>
-                        <li>Cambio lingüístico, evolución y documentación diacrónica de las lenguas.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="eje-box">
-                <button class="eje-btn">3. Pragmática, Análisis del Discurso y Textolingüística <span>▼</span></button>
-                <div class="eje-content">
-                    <ul>
-                        <li>Estudios del lenguaje en uso y dinámicas de la interacción comunicativa real.</li>
-                        <li>Análisis crítico del discurso en ámbitos institucionales, públicos, mediáticos o entornos digitales.</li>
-                        <li>Mecanismos de cohesión, coherencia y tipologías textuales.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="eje-box">
-                <button class="eje-btn">4. Psicolingüística, Neurolingüística y Adquisición del Lenguaje <span>▼</span></button>
-                <div class="eje-content">
-                    <ul>
-                        <li>Bases biológicas y cognitivas asociadas al procesamiento, producción y comprensión de la lengua.</li>
-                        <li>Estudios empíricos sobre la adquisición de la lengua materna (L1) o segundas lenguas.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="eje-box">
-                <button class="eje-btn">5. Lingüística Aplicada <span>▼</span></button>
-                <div class="eje-content">
-                    <ul>
-                        <li>Modelos de enseñanza y aprendizaje de lenguas maternas o extranjeras (como ELE).</li>
-                        <li>Traductología, interpretación, terminología, lexicografía y planificación lingüística.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="eje-box">
-                <button class="eje-btn">6. Estudios Interdisciplinares <span>▼</span></button>
-                <div class="eje-content">
-                    <ul>
-                        <li><strong>Lingüística Forense:</strong> Interfaz gramatical y discursiva aplicada al ámbito legal, peritajes y procesos judiciales.</li>
-                        <li><strong>Lingüística Computacional:</strong> Procesamiento del lenguaje natural (PLN), lingüística de corpus masivos y desarrollo de herramientas computacionales.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="card-academica" id="aranceles">
-            <h2 class="titulo-seccion">Costos e Inscripción</h2>
-            <div class="grid-dos">
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Categoría de Inscripción</th>
-                                <th>Arancel</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Asistente general</td>
-                                <td>$20.000</td>
-                            </tr>
-                            <tr>
-                                <td>Expositores Estudiantes de Pregrado</td>
-                                <td>$25.000</td>
-                            </tr>
-                            <tr>
-                                <td>Expositores Estudiantes de Postgrado y Egresados</td>
-                                <td>$35.000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p style="color:var(--color-verde); font-weight:700; font-size:0.9rem">💡 Descuento: Los miembros activos de la Asociación de Jóvenes Lingüistas cuentan con un 20% de rebaja en los valores.</p>
-                </div>
-                <div style="display:flex; flex-direction:column; justify-content:center; padding-left:15px; border-left: 1px solid rgba(255,255,255,0.05);">
-                    <p>• <strong>Recepción de propuestas:</strong> Hasta el 29 de mayo de 2026.</p>
-                    <p style="margin-bottom: 0;">• <strong>Resultados de evaluaciones:</strong> A partir del 3 de julio de 2026 (fecha estimada).</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="card-academica" id="inscripcion" style="text-align:center">
-            <h2 class="titulo-seccion" style="text-align:left">Registro e Inscripción</h2>
-            
-            <div class="aviso-proximamente">
-                ⚠️ El proceso de inscripciones y la plataforma de pago electrónico estarán completamente disponibles una vez que se hayan enviado las cartas oficiales de aceptación de ponencias y pósteres académicos (estimado a contar de julio de 2026).
-            </div>
-            
-            <p style="margin-bottom: 30px; opacity: 0.95;">
-                Tras recibir la confirmación de aceptación, los expositores y el público general con derecho a certificación podrán procesar su pago seguro mediante Webpay o transferencia bancaria directa.
-            </p>
-            
-            <div class="btn-deshabilitado">💳 Botón de Pago Próximamente Habilitado</div>
-        </section>
-
-    </div>
-
-    <div class="container-logos">
-        <img src="./instituciones.jpg" alt="Instituciones patrocinadoras" class="logos-img" onerror="this.style.display='none';">
-    </div>
-
-    <footer>
-        <p><strong>III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026</strong></p>
-        <p>Contacto institucional: congresojlch@gmail.com | Instagram: @horizontespluralesjlch</p>
-    </footer>
-
-    <script>
-        document.querySelectorAll('.eje-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                    this.querySelector('span').textContent = '▼';
-                } else {
-                    document.querySelectorAll('.eje-content').forEach(c => c.style.display = 'none');
-                    document.querySelectorAll('.eje-btn span').forEach(s => s.textContent = '▼');
-                    
-                    content.style.display = 'block';
-                    this.querySelector('span').textContent = '▲';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                <button class="eje-btn">Estudios del léxico y la semántica <span>▼</span></button>
