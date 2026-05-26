@@ -3,25 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
+    <title>3er Congreso de Jóvenes Lingüistas | Horizontes Plurales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f8ff;
+        /* Paleta cromática institucional */
+        :root {
+            --lila: #9282ac;
+            --verde-oliva: #b6bb69;
+            --crema-fondo: #f9f6e5;
+            --oscuro-grafito: #261e2d;
+            --marron-texto: #615245;
+            --blanco: #ffffff;
         }
-        h1 {
-            color: #333;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--crema-fondo);
+            color: var(--oscuro-grafito);
+            line-height: 1.6;
+        }
+
+        /* Barra de Navegación */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(249, 246, 229, 0.96);
+            border-bottom: 3px solid var(--lila);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(38, 30, 45, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-texto {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--oscuro-grafito);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--oscuro-grafito);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--lila);
+        }
+
+        /* Hero / Banner Principal */
+        .hero-banner-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            border-bottom: 5px solid var(--verde-oliva);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contenedor de Secciones */
+        .section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            scroll-margin-top: 90px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--oscuro-grafito);
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--verde-oliva);
+            padding-bottom: 6px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bloque de Alerta de Plazos */
+        .alerta-cronograma {
+            background-color: var(--verde-oliva);
+            color: var(--oscuro-grafito);
+            padding: 18px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        /* Estructura en Columnas Flexibles */
+        .grid-dinamico {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        /* Tarjetas con Textura de Manuscrito de Fondo */
+        .card-academica {
+            background-color: rgba(255, 255, 255, 0.85);
+            /* Simulación del patrón de texto antiguo usando gradientes sutiles */
+            background-image: radial-gradient(rgba(38, 30, 45, 0.015) 1px, transparent 0);
+            background-size: 24px 24px;
+            border: 1px solid rgba(146, 130, 172, 0.25);
+            border-radius: 6px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .card-academica h3 {
+            color: var(--marron-texto);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            border-left: 4px solid var(--lila);
+            padding-left: 10px;
+        }
+
+        .card-academica ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        .card-academica li {
+            margin-bottom: 10px;
+        }
+
+        /* Tabla de Aranceles Estilizada */
+        .tabla-valores {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background-color: var(--blanco);
+        }
+
+        .tabla-valores th, .tabla-valores td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(146, 130, 172, 0.15);
+            font-size: 0.95rem;
+        }
+
+        .tabla-valores th {
+            background-color: var(--lila);
+            color: var(--crema-fondo);
+            font-weight: 600;
+        }
+
+        .card-descuento {
+            margin-top: 15px;
+            background-color: rgba(182, 187, 105, 0.15);
+            padding: 12px;
+            border-left: 4px solid var(--verde-oliva);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Botones de Acción Claros */
+        .btn-accion {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--lila);
+            color: var(--crema-fondo);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-accion:hover {
+            background-color: var(--marron-texto);
+            transform: translateY(-1px);
+        }
+
+        .btn-secundario {
+            background-color: var(--verde-oliva);
+            color: var(--oscuro-grafito);
+        }
+
+        .btn-secundario:hover {
+            background-color: #a2a75c;
+        }
+
+        /* Acordeones Dinámicos para Ejes */
+        .eje-contenedor {
+            background-color: var(--blanco);
+            border: 1px solid rgba(146, 130, 172, 0.2);
+            border-radius: 4px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .eje-titulo {
+            padding: 16px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background-color: var(--blanco);
+            transition: background-color 0.2s;
+        }
+
+        .eje-titulo:hover {
+            background-color: rgba(249, 246, 229, 0.5);
+        }
+
+        .eje-titulo::after {
+            content: '▼';
+            font-size: 0.75rem;
+            color: var(--lila);
+            transition: transform 0.2s;
+        }
+
+        .eje-contenedor.activo .eje-titulo::after {
+            transform: rotate(180deg);
+        }
+
+        .eje-detalle {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+            padding: 0 20px;
+            background-color: #fafafa;
+            color: var(--marron-texto);
+            font-size: 0.95rem;
+        }
+
+        .eje-contenedor.activo .eje-detalle {
+            padding: 15px 20px 20px 20px;
+            border-top: 1px solid rgba(146, 130, 172, 0.1);
+        }
+
+        /* Sección de Cierre / Marcas Auspiciadoras */
+        .marcas-auspicio {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: var(--oscuro-grafito);
+            color: var(--crema-fondo);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>¡Hola! Mi página web en GitHub está funcionando con éxito.</h1>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo-texto">3er Congreso JJL</a>
+            <ul class="nav-menu">
+                <li><a href="#convocatoria">Convocatoria</a></li>
+                <li><a href="#ejes">Ejes Temáticos</a></li>
+                <li><a href="#aranceles">Aranceles</a></li>
+                <li><a href="#inscripcion">Inscripciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-banner-container">
+        <img src="banner.jpg" alt="3er Congreso de Jóvenes Lingüistas - Horizontes Plurales" class="hero-img">
+    </div>
+
+    <section class="section" id="convocatoria">
+        <h2 class="section-title">Convocatoria de Resúmenes</h2>
+        
+        <div class="alerta-cronograma">
+            🗓️ RECEPCIÓN DE RESÚMENES HASTA EL 29 DE MAYO DE 2026
+        </div>
+
+        <div class="grid-dinamico">
+            <div class="card-academica">
+                <h3>Bases de Participación</h3>
+                <p><strong>Público Destinatario:</strong> Estudiantes de lingüística de pregrado y posgrado de todo el país.</p>
+                <ul>
+                    <li><strong>Modalidades:</strong> Ponencias orales y pósteres académicos expuestos en español.</li>
+                    <li><strong>Estructura:</strong> Evaluación ciega por parte del comité de arbitraje académico especializado.</li>
+                </ul>
+                <a href="#" class="btn-accion btn-secundario">📋 Descargar Bases en PDF</a>
+            </div>
+
+            <div class="card-academica">
+                <h3>Requisitos del Envío</h3>
+                <p>Las propuestas de resúmenes deben cumplir estrictamente con los siguientes lineamientos editoriales institucionales:</p>
+                <ul>
+                    <li>Extensión permitida de entre <strong>250 y 350 palabras</strong>.</li>
+                    <li>Inclusión obligatoria de referencias de apoyo.</li>
+                    <li>Estructurado bajo normativas de citación <strong>APA 7.ª edición</strong>.</li>
+                </ul>
+                <a href="#" target="_blank" class="btn-accion">📩 Enviar mi Propuesta Académica</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="ejes">
+        <h2 class="section-title">Ejes Temáticos del Encuentro</h2>
+        
+        <div class="eje-contenedor">
+            <div class="eje-titulo">Sociopragmática y Análisis del Discurso</div>
+            <div class="eje-content eje-detalle">
+                Análisis e investigación del lenguaje situado en contextos de interacción social, dinámicas de cortesía lingüística, variación sociopragmática y discursos públicos o institucionales.
+            </div>
+        </div>
+
+        <div class="eje-contenedor">
+            <div class="eje-titulo">Lingüística Forense y Peritaje del Lenguaje</div>
+            <div class="eje-content eje-detalle">
+                Estudios aplicados a la interfaz legal y judicial: atribución de autorías textuales, detección de plagios, lingüística de las leyes y peritajes fonético-acústicos.
+            </div>
+        </div>
+
+        <div class="eje-contenedor">
+            <div class="eje-titulo">Gramática, Fonética y Estructuras de la Lengua</div>
+            <div class="eje-content eje-detalle">
+                Investigaciones teóricas y empíricas en los niveles de organización del sistema: fonología descriptiva, sintaxis, semántica formal e interfaces lingüísticas aplicadas.
+            </div>
+        </div>
+
+        <div class="eje-contenedor">
+            <div class="eje-titulo">Psicolingüística y Variedades del Aprendizaje</div>
+            <div class="eje-content eje-detalle">
+                Procesamiento cognitivo del lenguaje natural, bilingüismo coordinado, adquisición y desarrollo lingüístico en etapas tempranas o metodologías de enseñanza especiales.
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="aranceles">
+        <h2 class="section-title">Costos de Inscripción</h2>
+        <div class="card-academica">
+            <h3>Valores por Categoría</h3>
+            <table class="tabla-valores">
+                <thead>
+                    <tr>
+                        <th>Categoría de Inscripción</th>
+                        <th>Arancel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Asistente General</td>
+                        <td>$20.000</td>
+                    </tr>
+                    <tr>
+                        <td>Expositor (Estudiante de Pregrado)</td>
+                        <td>$25.000</td>
+                    </tr>
+                    <tr>
+                        <td>Expositor (Estudiante de Postgrado y Egresados)</td>
+                        <td>$35.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="card-descuento">
+                ✨ Descuento Especial: Los miembros acreditados de la Asociación de Jóvenes Lingüistas cuentan con un 20% de rebaja en los aranceles.
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="inscripcion">
+        <h2 class="section-title">Plataforma de Inscripción</h2>
+        <div class="card-academica" style="text-align: center; border-top: 4px solid var(--lila);">
+            <p style="font-size: 1.05rem; margin-bottom: 25px;">
+                Para formalizar tu registro de asistencia o asegurar tu bloque de ponencia una vez aprobado el resumen, procede a través de la pasarela segura integrada:
+            </p>
+            <a href="#" target="_blank" class="btn-accion" style="padding: 15px 40px; font-size: 1.1rem; letter-spacing: 0.5px;">💳 Acceder al Botón de Pago Seguro</a>
+            <p style="font-size: 0.85rem; color: var(--marron-texto); margin-top: 15px;">
+                La plataforma de pago acepta de forma segura tarjetas de débito, crédito y transferencias electrónicas bancarias.
+            </p>
+        </div>
+    </section>
+
+    <div class="hero-banner-container" style="border-top: 3px solid var(--lila); border-bottom: none; margin-top: 60px;">
+        <img src="instituciones.jpg" alt="Instituciones Patrocinadoras" class="marcas-auspicio">
+    </div>
+
+    <footer>
+        <p><strong>3er Congreso de Jóvenes Lingüistas: Horizontes Plurales</strong></p>
+        <p>Asociación de Jóvenes Lingüistas de Chile</p>
+        <p>Contacto: congresojlch@gmail.com | Redes Sociales: @joveneslinguistaschile</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.eje-titulo').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const content = item.querySelector('.eje-detalle');
+                
+                if (item.classList.contains('activo')) {
+                    content.style.maxHeight = null;
+                    item.classList.remove('activo');
+                } else {
+                    document.querySelectorAll('.eje-contenedor').forEach(otherItem => {
+                        otherItem.classList.remove('activo');
+                        otherItem.querySelector('.eje-detalle').style.maxHeight = null;
+                    });
+                    item.classList.add('activo');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
