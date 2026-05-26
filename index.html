@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>III Congreso de la Asociación de Jóvenes Lingüistas de Chile 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Paleta cromática institucional */
         :root {
             --color-lila: #9282ac;
             --color-verde: #b6bb69;
             --color-crema: #f9f6e5;
-            --color-oscuro: #261e2d;
+            --color-oscuro: #261e2d; /* Morado muy oscuro para recuadros */
             --blanco: #ffffff;
         }
 
@@ -21,7 +20,6 @@
             padding: 0;
         }
 
-        /* Fuerza el fondo morado en toda la página */
         html, body {
             background-color: var(--color-lila) !important;
             color: var(--color-crema);
@@ -29,14 +27,13 @@
             line-height: 1.6;
         }
 
-        /* Barra de Navegación */
+        /* Navegación */
         header {
             position: sticky;
             top: 0;
             background-color: var(--color-oscuro);
             border-bottom: 4px solid var(--color-verde);
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .nav-container {
@@ -53,7 +50,6 @@
             font-size: 1rem;
             color: var(--color-crema);
             text-transform: uppercase;
-            letter-spacing: 1px;
             text-decoration: none;
         }
 
@@ -68,134 +64,320 @@
             color: var(--color-crema);
             font-size: 0.85rem;
             font-weight: 600;
-            transition: color 0.2s;
         }
 
         .nav-menu a:hover {
             color: var(--color-verde);
         }
 
-        /* Banner Principal - CUBRE TODO EL ANCHO DE LA PÁGINA */
+        /* Banner Full Width */
         .hero-banner-full {
             width: 100%;
-            background-color: var(--color-oscuro);
-            text-align: center;
-            border-bottom: 5px solid var(--color-verde);
+            line-height: 0;
         }
 
         .hero-img {
             width: 100%;
-            max-width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Respaldo si la imagen no se encuentra */
-        .banner-backup {
-            padding: 60px 20px;
-            background-color: var(--color-oscuro);
-        }
-        .banner-backup h1 {
-            font-size: 2.2rem;
-            color: var(--color-crema);
-            text-transform: uppercase;
-        }
-
-        /* Contenedor de Secciones */
-        .section {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-            scroll-margin-top: 90px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-crema);
-            margin-bottom: 25px;
-            border-left: 5px solid var(--color-verde);
-            padding-left: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Tarjetas Académicas con Contraste Oscuro */
-        .card-academica {
-            background-color: rgba(38, 30, 45, 0.75) !important;
-            border: 1px solid rgba(249, 246, 229, 0.2);
-            border-radius: 8px;
-            padding: 35px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-
-        /* Bloque de Alerta de Plazos */
-        .alerta-cronograma {
+        /* SECCIÓN DE FECHA DESTACADA */
+        .fecha-hero {
             background-color: var(--color-verde);
             color: var(--color-oscuro);
-            padding: 18px;
+            text-align: center;
+            padding: 30px 20px;
+            font-weight: 700;
+            border-bottom: 5px solid rgba(0,0,0,0.1);
+        }
+
+        .fecha-hero h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .fecha-hero p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        /* Contenedores */
+        .container {
+            max-width: 1150px; /* RECUAUDRO AMPLIADO */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card-academica {
+            background-color: rgba(38, 30, 45, 0.85) !important;
+            border: 1px solid rgba(249, 246, 229, 0.15);
+            border-radius: 12px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .titulo-seccion {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            border-left: 6px solid var(--color-verde);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            color: var(--color-crema);
+        }
+
+        /* Doble Columna */
+        .grid-dos {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        .card-inner {
+            background-color: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
             border-radius: 4px;
             font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-            letter-spacing: 0.5px;
         }
 
-        /* Estructura en Doble Columna */
-        .grid-dinamico {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
+        .btn-verde { background-color: var(--color-verde); color: var(--color-oscuro); }
+        .btn-verde:hover { background-color: var(--color-crema); }
+        
+        .btn-crema { background-color: var(--color-crema); color: var(--color-oscuro); }
+        .btn-crema:hover { background-color: var(--color-verde); }
 
-        .card-columna {
-            background-color: rgba(38, 30, 45, 0.5);
-            border: 1px solid rgba(249, 246, 229, 0.15);
-            border-radius: 6px;
-            padding: 30px;
-        }
-
-        .card-columna h3 {
-            color: var(--color-crema);
-            margin-bottom: 15px;
-            font-size: 1.25rem;
-            border-bottom: 2px solid var(--color-verde);
-            padding-bottom: 5px;
-        }
-
-        .card-columna ul {
-            padding-left: 20px;
-            margin: 15px 0;
-        }
-
-        .card-columna li {
+        /* Acordeón Ejes */
+        .eje-box {
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid rgba(249, 246, 229, 0.1);
             margin-bottom: 10px;
+            border-radius: 6px;
         }
 
-        /* Tabla de Aranceles */
-        .tabla-valores {
+        .eje-btn {
+            padding: 18px 25px;
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        .tabla-valores th, .tabla-valores td {
-            padding: 12px 14px;
             text-align: left;
-            border-bottom: 1px solid rgba(249, 246, 229, 0.2);
-        }
-
-        .tabla-valores th {
-            background-color: rgba(38, 30, 45, 0.9);
+            background: none;
+            border: none;
             color: var(--color-crema);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
         }
 
-        /* Botones de Acción */
+        .eje-btn:hover { background-color: rgba(255,255,255,0.05); }
+
+        .eje-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease-out;
+            padding: 0 25px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Tablas */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { background-color: rgba(0,0,0,0.2); }
+
+        /* Footer */
+        .container-logos { width: 100%; background-color: var(--blanco); padding: 20px 0; }
+        footer { background-color: var(--color-oscuro); padding: 40px; text-align: center; font-size: 0.9rem; }
+
+        @media (max-width: 900px) {
+            .grid-dos { grid-template-columns: 1fr; }
+            .fecha-hero h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo-texto">III Congreso JJL Chile</a>
+            <ul class="nav-menu">
+                <li><a href="#circular">Circular</a></li>
+                <li><a href="#ejes">Áreas</a></li>
+                <li><a href="#aranceles">Valores</a></li>
+                <li><a href="#pago">Inscripción</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-banner-full">
+        <img src="banner.jpg" alt="Banner Horizontes Plurales" class="hero-img">
+    </div>
+
+    <div class="fecha-hero">
+        <h2>2, 3 y 4 de diciembre de 2026</h2>
+        <p>Santiago de Chile | UMCE - PUC</p>
+    </div>
+
+    <div class="container">
+
+        <section class="card-academica">
+            <h2 class="titulo-seccion">Presentación</h2>
+            <p>La <strong>Asociación de Jóvenes Lingüistas de Chile</strong> invita a estudiantes de pregrado y posgrado de todo el país al III Congreso de la Asociación: <strong>"Horizontes Plurales: Nuevas miradas lingüísticas desde el Sur Global"</strong>.</p>
+            <p>Este espacio busca impulsar nuevas preguntas sobre los fenómenos del lenguaje, integrando la diversidad de marcos conceptuales que caracterizan a la disciplina y fortaleciendo las redes de colaboración entre investigadores noveles de nuestra región.</p>
+        </section>
+
+        <section class="card-academica" id="circular">
+            <h2 class="titulo-seccion">Convocatoria y Envíos</h2>
+            <div class="grid-dos">
+                <div>
+                    <p>Se reciben propuestas de <strong>ponencias orales</strong> y <strong>pósteres académicos</strong>. Los interesados deben enviar sus resúmenes a través del formulario oficial disponible a continuación.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfne2cOlVb-JjJKx0oLdZvHYGvGSm0CA6Oq1oe2evh3E0Leyw/viewform" target="_blank" class="btn btn-verde">📩 Formulario de Envío</a>
+                        <a href="III_Congreso_JLCH_Primera_circular.pdf" target="_blank" class="btn btn-crema">⬇️ Descargar Circular (PDF)</a>
+                    </div>
+                </div>
+                <div class="card-inner">
+                    <h4 style="margin-bottom:10px; color:var(--color-verde)">Requisitos de Envío</h4>
+                    <ul style="font-size: 0.85rem; padding-left:15px;">
+                        <li>Extensión: 250 - 350 palabras.</li>
+                        <li>Idioma: Español.</li>
+                        <li>Referencias: 3 a 6 (APA 7.ª ed).</li>
+                        <li>Palabras clave: 3 a 5.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-academica" id="ejes">
+            <h2 class="titulo-seccion">Áreas Temáticas</h2>
+            <p style="margin-bottom:20px">El congreso contempla las siguientes áreas de investigación sugeridas:</p>
+            
+            <div class="eje-box">
+                <button class="eje-btn">Estudios del discurso y sociolingüística <span>+</span></button>
+                <div class="eje-content"><p>Análisis del discurso, estudios críticos, sociolingüística variacionista y cognitiva.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Léxico y Semántica <span>+</span></button>
+                <div class="eje-content"><p>Estudios sobre el significado, terminología, lexicografía y relaciones léxicas.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Interacción y Pragmática <span>+</span></button>
+                <div class="eje-content"><p>Uso del lenguaje en contexto, cortesía, actos de habla y análisis de la conversación.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Fonología y Fonética <span>+</span></button>
+                <div class="eje-content"><p>Estudios acústicos, articulatorios y sistemas de sonidos de las lenguas.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Gramática y Tipología <span>+</span></button>
+                <div class="eje-content"><p>Sintaxis, morfología y comparación de estructuras entre diversas lenguas.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Lingüística Computacional <span>+</span></button>
+                <div class="eje-content"><p>Procesamiento de lenguaje natural, herramientas digitales y lingüística de corpus.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Lingüística Educacional <span>+</span></button>
+                <div class="eje-content"><p>Enseñanza de lenguas, lingüística aplicada al aula y desarrollo de habilidades lingüísticas.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Lingüística Histórica y Filología <span>+</span></button>
+                <div class="eje-content"><p>Cambio lingüístico a través del tiempo y estudio de textos antiguos.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Multimodalidad <span>+</span></button>
+                <div class="eje-content"><p>Análisis de la comunicación que integra diversos sistemas semióticos (gestos, imágenes, etc.).</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Psicolingüística y Neurolingüística <span>+</span></button>
+                <div class="eje-content"><p>Procesamiento mental del lenguaje y sus bases biológicas/cerebrales.</p></div>
+            </div>
+            
+            <div class="eje-box">
+                <button class="eje-btn">Otras perspectivas <span>+</span></button>
+                <div class="eje-content"><p>Líneas de investigación emergentes en lingüística teórica y aplicada.</p></div>
+            </div>
+        </section>
+
+        <section class="card-academica" id="aranceles">
+            <h2 class="titulo-seccion">Fechas y Aranceles</h2>
+            <div class="grid-dos">
+                <div>
+                    <table>
+                        <thead><tr><th>Categoría</th><th>Arancel</th></tr></thead>
+                        <tbody>
+                            <tr><td>Asistente general</td><td>$20.000</td></tr>
+                            <tr><td>Estudiantes pregrado</td><td>$25.000</td></tr>
+                            <tr><td>Postgrado y egresados</td><td>$35.000</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="color:var(--color-verde); font-weight:600; font-size:0.9rem">Miembros de la Asociación cuentan con un 20% de descuento.</p>
+                </div>
+                <div style="display:flex; flex-direction:column; justify-content:center">
+                    <p><strong>Cierre de resúmenes:</strong><br>29 de mayo de 2026</p>
+                    <p><strong>Notificación aceptación:</strong><br>3 de julio de 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-academica" id="pago" style="text-align:center">
+            <h2 class="titulo-seccion" style="text-align:left">Registro e Inscripción</h2>
+            <p style="margin: 20px 0; font-style: italic;">
+                "La plataforma de pago e inscripciones estará disponible una vez que se hayan enviado las cartas oficiales de aceptación de ponencias y pósteres (julio 2026)."
+            </p>
+            <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:8px">
+                <p style="opacity:0.5; margin-bottom:0">💳 Botón de Pago Próximamente Habilitado</p>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="container-logos">
+        <img src="instituciones.jpg" alt="Instituciones patrocinadoras" style="max-width:1100px; display:block; margin:0 auto">
+    </div>
+
+    <footer>
+        <p><strong>III Congreso Jóvenes Lingüistas Chile 2026</strong></p>
+        <p>congresojlch@gmail.com | @horizontespluralesjlch</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.eje-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const parent = btn.parentElement;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    parent.classList.remove('activo');
+                } else {
+                    document.querySelectorAll('.eje-content').forEach(c => c.style.maxHeight = null);
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    parent.classList.add('activo');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
