@@ -19,6 +19,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--color-lila);
             background-image: radial-gradient(rgba(38, 30, 45, 0.12) 1px, transparent 0),
@@ -46,7 +50,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            flex-wrap: wrap; /* Permite que baje en celulares */
+            flex-wrap: wrap;
         }
 
         .logo-texto {
@@ -62,7 +66,8 @@
             display: flex;
             list-style: none;
             gap: 25px;
-            flex-wrap: wrap; /* Si no cabe en pantallas medianas, se acomoda solo */
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         .nav-menu a {
@@ -77,6 +82,20 @@
 
         .nav-menu a:hover {
             color: var(--color-verde);
+        }
+
+        /* Botón destacado en el menú */
+        .nav-menu a.nav-cta {
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .nav-menu a.nav-cta:hover {
+            background-color: var(--color-crema);
+            color: var(--color-oscuro);
         }
 
         /* Banner Superior */
@@ -114,6 +133,26 @@
             font-size: 1.2rem;
             font-weight: 600;
             letter-spacing: 0.5px;
+            margin-bottom: 0;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 14px 34px;
+            background-color: var(--color-oscuro);
+            color: var(--color-crema);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: transform 0.15s, background-color 0.2s;
+        }
+
+        .hero-cta:hover {
+            background-color: #3a2e45;
+            transform: translateY(-2px);
         }
 
         /* Contenedores de Información Ampliados */
@@ -180,7 +219,7 @@
             display: flex; 
             gap: 15px; 
             width: 100%;
-            flex-wrap: wrap; /* Se apilan si la pantalla es muy chica */
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -196,7 +235,7 @@
             cursor: pointer;
             font-size: 0.95rem;
             flex: 1;
-            min-width: 180px; /* Evita que queden excesivamente colapsados */
+            min-width: 180px;
             text-align: center;
         }
 
@@ -216,32 +255,41 @@
             background-color: var(--color-verde); 
         }
 
-        /* Botón de pago transitorio deshabilitado */
+        /* Botón desactivado (envío de resúmenes cerrado) */
         .btn-deshabilitado {
-            display: inline-block;
-            padding: 15px 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
             background-color: rgba(249, 246, 229, 0.15);
-            color: rgba(249, 246, 229, 0.4);
-            text-decoration: none;
+            color: rgba(249, 246, 229, 0.45);
             border-radius: 4px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-align: center;
             border: 1px solid rgba(249, 246, 229, 0.1);
             cursor: not-allowed;
-            width: 100%;
+            flex: 1;
+            min-width: 180px;
+            font-family: inherit;
         }
 
-        .aviso-proximamente {
-            background-color: rgba(182, 187, 105, 0.12);
-            border: 1px dashed var(--color-verde);
-            color: var(--color-verde);
+        .aviso-cerrado {
+            background-color: rgba(249, 246, 229, 0.08);
+            border-left: 4px solid rgba(249, 246, 229, 0.4);
             padding: 15px;
             border-radius: 4px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 20px 0;
+        }
+
+        .aviso-cerrado .etiqueta {
+            color: rgba(249, 246, 229, 0.7);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
         }
 
         /* Acordeón de Áreas Temáticas */
@@ -274,7 +322,6 @@
             gap: 10px;
         }
 
-        /* Animación para la flechita del acordeón */
         .eje-btn span {
             transition: transform 0.3s ease;
             font-size: 0.8rem;
@@ -312,6 +359,10 @@
             background-color: rgba(0, 0, 0, 0.3); 
             font-weight: 600;
         }
+        td.precio {
+            font-weight: 700;
+            white-space: nowrap;
+        }
 
         /* Requisitos */
         .previsualizacion-grande {
@@ -322,7 +373,7 @@
             font-size: 1.05rem; 
             border-left: 6px solid var(--color-verde);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            height: 100%; /* Para que se nivele con la columna de texto */
+            height: 100%;
         }
 
         .previsualizacion-grande h4 {
@@ -337,6 +388,166 @@
         .previsualizacion-grande li {
             color: var(--color-oscuro);
             margin-bottom: 8px;
+        }
+
+        /* ========================================================
+            SECCIÓN DE PAGO / INSCRIPCIONES
+            ======================================================== */
+        .pasos-pago {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .paso {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: rgba(182, 187, 105, 0.1);
+            border: 1px dashed rgba(182, 187, 105, 0.5);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .paso-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .grid-pagos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .pago-card {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(249, 246, 229, 0.12);
+            border-radius: 10px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+
+        .pago-card:hover {
+            border-color: var(--color-verde);
+            transform: translateY(-3px);
+        }
+
+        .pago-icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .pago-card h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            color: var(--color-verde);
+        }
+
+        .pago-card .pago-desc {
+            font-size: 0.9rem;
+            color: rgba(249, 246, 229, 0.8);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .pago-opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-pago {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 14px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            line-height: 1.3;
+            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .btn-pago:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+        }
+
+        .btn-pago .btn-quien {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-pago .btn-monto {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .btn-pago .btn-accion {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.85;
+        }
+
+        .btn-pago.socio {
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+        }
+        .btn-pago.socio:hover {
+            background-color: #cdd283;
+        }
+
+        .btn-pago.general {
+            background-color: var(--color-crema);
+            color: var(--color-oscuro);
+        }
+        .btn-pago.general:hover {
+            background-color: #ffffff;
+        }
+
+        .etiqueta-socio {
+            display: inline-block;
+            font-size: 0.7rem;
+            background-color: var(--color-oscuro);
+            color: var(--color-verde);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-bottom: 4px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nota-pago {
+            margin-top: 28px;
+            font-size: 0.88rem;
+            color: rgba(249, 246, 229, 0.75);
+            text-align: center;
+            margin-bottom: 0;
         }
 
         /* Franja de logos transparente */
@@ -367,7 +578,6 @@
             MEDIA QUERIES AVANZADAS PARA MÓVILES Y TABLETS 
             ======================================================== */
         
-        /* Ajustes para pantallas medianas (Tablets y Laptops chicas) */
         @media (max-width: 950px) {
             .convocatoria-flex { 
                 flex-direction: column; 
@@ -377,13 +587,15 @@
                 width: 100%;
             }
             .card-academica {
-                padding: 30px 20px; /* Menos espacio interno inútil */
+                padding: 30px 20px;
             }
             .fecha-hero h2 { 
                 font-size: 2rem; 
             }
+            .grid-pagos {
+                grid-template-columns: 1fr;
+            }
             
-            /* Ajuste para la línea divisoria de la sección de aranceles */
             #aranceles .columna-mitad:last-child {
                 padding-left: 0 !important;
                 padding-top: 20px;
@@ -392,7 +604,6 @@
             }
         }
 
-        /* Ajustes críticos para Celulares (Pantallas de menos de 600px) */
         @media (max-width: 600px) {
             .nav-container {
                 flex-direction: column;
@@ -406,7 +617,7 @@
             }
 
             .nav-menu a {
-                font-size: 0.75rem; /* Letra un poquito más pequeña para que quepa en una sola línea */
+                font-size: 0.75rem;
             }
 
             .fecha-hero h2 { 
@@ -417,17 +628,26 @@
                 font-size: 1rem;
             }
 
+            .hero-cta {
+                width: 100%;
+            }
+
             .titulo-seccion {
                 font-size: 1.3rem;
             }
 
-            .btn {
-                width: 100%; /* Botones a ancho completo para que sea fácil tocarlos con el dedo */
+            .btn,
+            .btn-deshabilitado {
+                width: 100%;
             }
             
             th, td {
-                padding: 10px 8px; /* Tablas más compactas en celulares */
+                padding: 10px 8px;
                 font-size: 0.85rem;
+            }
+
+            .paso {
+                min-width: 100%;
             }
         }
     </style>
@@ -442,7 +662,7 @@
                 <li><a href="#convocatoria">Convocatoria</a></li>
                 <li><a href="#ejes">Áreas</a></li>
                 <li><a href="#aranceles">Valores</a></li>
-                <li><a href="#inscripcion">Inscripciones</a></li>
+                <li><a href="#inscripcion" class="nav-cta">Inscríbete aquí</a></li>
             </ul>
         </nav>
     </header>
@@ -454,6 +674,7 @@
     <div class="fecha-hero">
         <h2>2, 3 y 4 de diciembre de 2026</h2>
         <p>Santiago de Chile • UMCE / PUC / UCSH</p>
+        <a href="#inscripcion" class="hero-cta">💳 Inscríbete y paga tu arancel</a>
     </div>
 
     <div class="container">
@@ -473,17 +694,17 @@
             <div class="convocatoria-flex">
                 <div class="columna-mitad">
                     <div>
-                        <p>Se convoca a la presentation de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, las cuales serán evaluadas bajo sistema de arbitraje ciego. Todas las actividades y envíos se realizarán en español.</p>
+                        <p>La convocatoria contempló la presentación de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, evaluadas bajo sistema de arbitraje ciego. Todas las actividades y envíos se realizan en español.</p>
                     </div>
                     
-                    <div style="margin: 20px 0; background-color: rgba(182, 187, 105, 0.12); border-left: 4px solid var(--color-verde); padding: 15px; border-radius: 4px;">
-                        <span style="color: var(--color-verde); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; display: block; margin-bottom: 4px; letter-spacing: 0.5px;">Plazo Máximo de Envío:</span>
-                        <strong style="font-size: 1.1rem; color: var(--color-crema); text-decoration: line-through; opacity: 0.7;">Hasta el 29 de mayo de 2026</strong><br>
-                        <strong style="font-size: 1.1rem; color: var(--color-verde);">¡NUEVO PLAZO! Hasta el 03 de julio de 2026</strong>
+                    <div class="aviso-cerrado">
+                        <span class="etiqueta">Estado de la convocatoria:</span>
+                        <strong style="font-size: 1.1rem; color: var(--color-crema);">Recepción de resúmenes cerrada</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Ya se enviaron todas las cartas de aceptación. ¡Gracias a quienes participaron!</span>
                     </div>
 
                     <div class="botones-wrapper">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfne2cOlVb-JjJKx0oLdZvHYGvGSm0CA6Oq1oe2evh3E0Leyw/viewform" target="_blank" class="btn btn-verde">📩 Enviar Resumen</a>
+                        <button type="button" class="btn-deshabilitado" disabled aria-disabled="true">🔒 Envío de Resúmenes Cerrado</button>
                         <a href="./III_Congreso_JLCH_Primera_circular.pdf" download="III_Congreso_JLCH_Primera_circular.pdf" class="btn btn-crema">⬇️ Descargar 1ra Circular</a>
                         <a href="./III_Congreso_JLCH_Segunda_circular.pdf.pdf" download="III_Congreso_JLCH_Segunda_circular.pdf" class="btn btn-crema">⬇️ Descargar 2da Circular</a>
                     </div>
@@ -491,7 +712,7 @@
 
                 <div class="columna-mitad">
                     <div class="previsualizacion-grande">
-                        <h4>🔍 Directrices de Envío</h4>
+                        <h4>🔍 Directrices de Envío (referencia)</h4>
                         <ul style="padding-left: 15px; margin-bottom: 0;">
                             <li><strong>Extensión:</strong> Entre 250 y 350 palabras.</li>
                             <li><strong>Estructura obligatoria:</strong> Problematización, objetivo, metodología, hallazgos esperados y relevancia del estudio.</li>
@@ -577,35 +798,106 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>Estudiantes de pregrado (no asociados/as)</td>
+                                    <td class="precio">$25.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Estudiantes de pregrado asociados/as a Jóvenes Lingüistas</td>
+                                    <td class="precio">$20.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Estudiantes de posgrado o egresados/as (no asociados/as)</td>
+                                    <td class="precio">$35.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Estudiantes de posgrado o egresados/as asociados/as a Jóvenes Lingüistas</td>
+                                    <td class="precio">$28.000</td>
+                                </tr>
+                                <tr>
                                     <td>Asistente general</td>
-                                    <td>$20.000</td>
-                                </tr>
-                                <tr>
-                                    <td>Expositores Estudiantes de Pregrado</td>
-                                    <td>$25.000</td>
-                                </tr>
-                                <tr>
-                                    <td>Expositores Estudiantes de Postgrado y Egresados</td>
-                                    <td>$35.000</td>
+                                    <td class="precio">$20.000</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p style="color:var(--color-verde); font-weight:700; font-size:0.9rem">💡 Descuento: Los miembros activos de la Asociación de Jóvenes Lingüistas cuentan con un 20% de rebaja en los valores.</p>
+                    <p style="color:var(--color-verde); font-weight:700; font-size:0.9rem">💡 Descuento: Los miembros activos de la Asociación de Jóvenes Lingüistas cuentan con un 20% de rebaja en los valores de expositores/as.</p>
                 </div>
                 <div class="columna-mitad" style="padding-left: 25px; border-left: 1px solid rgba(249, 246, 229, 0.1); justify-content: center;">
-                    <p>• <strong>Recepción de resúmenes:</strong> Hasta el 03 de julio de 2026 (¡Nuevo plazo!).</p>
-                    <p style="margin-bottom: 0;">• <strong>Resultados de evaluaciones:</strong> A partir del 7 de agosto de 2026 (fecha estimada).</p>
+                    <p>• <strong>Recepción de resúmenes:</strong> Cerrada.</p>
+                    <p>• <strong>Cartas de aceptación:</strong> Ya fueron enviadas.</p>
+                    <p style="margin-bottom: 0;">• <strong>Inscripción y pago:</strong> Disponible ahora, más abajo. 👇</p>
                 </div>
             </div>
         </section>
 
         <section class="card-academica" id="inscripcion">
-            <h2 class="titulo-seccion">Inscripciones</h2>
-            <div class="aviso-proximamente">
-                Pagar arancel de inscripción (Disponible a partir de agosto de 2026)
+            <h2 class="titulo-seccion">Inscripciones y Pago</h2>
+
+            <div class="pasos-pago">
+                <div class="paso"><span class="paso-num">1</span> Elige tu categoría</div>
+                <div class="paso"><span class="paso-num">2</span> Haz clic en el botón que te corresponda</div>
+                <div class="paso"><span class="paso-num">3</span> Paga de forma segura en WebPay</div>
             </div>
-            <button class="btn-deshabilitado" disabled>Formulario de Pago No Disponible</button>
+
+            <div class="grid-pagos">
+
+                <!-- Pregrado -->
+                <div class="pago-card">
+                    <div class="pago-icono">🎓</div>
+                    <h3>Estudiantes de Pregrado</h3>
+                    <p class="pago-desc">Para quienes presentan una ponencia o póster y cursan una carrera de pregrado.</p>
+                    <div class="pago-opciones">
+                        <a href="https://www.webpay.cl/form-pay/430354" target="_blank" rel="noopener" class="btn-pago socio">
+                            <span class="etiqueta-socio">Socio/a</span>
+                            <span class="btn-quien">Asociado/a a Jóvenes Lingüistas</span>
+                            <span class="btn-monto">$20.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                        <a href="https://www.webpay.cl/form-pay/430340" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-quien">No asociado/a</span>
+                            <span class="btn-monto">$25.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Posgrado / egresados -->
+                <div class="pago-card">
+                    <div class="pago-icono">📚</div>
+                    <h3>Posgrado o Egresados/as</h3>
+                    <p class="pago-desc">Para quienes presentan una ponencia o póster y son estudiantes de posgrado o egresados/as.</p>
+                    <div class="pago-opciones">
+                        <a href="https://www.webpay.cl/form-pay/430372" target="_blank" rel="noopener" class="btn-pago socio">
+                            <span class="etiqueta-socio">Socio/a</span>
+                            <span class="btn-quien">Asociado/a a Jóvenes Lingüistas</span>
+                            <span class="btn-monto">$28.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                        <a href="https://www.webpay.cl/form-pay/430359" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-quien">No asociado/a</span>
+                            <span class="btn-monto">$35.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Asistente general -->
+                <div class="pago-card">
+                    <div class="pago-icono">🎟️</div>
+                    <h3>Asistente General</h3>
+                    <p class="pago-desc">Para quienes participan del congreso como público, sin presentar trabajo.</p>
+                    <div class="pago-opciones">
+                        <a href="https://www.webpay.cl/form-pay/430379" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-quien">Asistente general</span>
+                            <span class="btn-monto">$20.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="nota-pago">🔒 Los pagos se realizan en la plataforma segura WebPay. Revisa que tu categoría sea la correcta antes de pagar.</p>
         </section>
         
     </div>
@@ -620,7 +912,7 @@
                 const box = button.parentElement;
                 const content = button.nextElementSibling;
                 
-                // Cierra los otros elementos abiertos para un efecto limpio (opcional)
+                // Cierra los otros elementos abiertos para un efecto limpio
                 document.querySelectorAll('.eje-box').forEach(otherBox => {
                     if (otherBox !== box && otherBox.classList.contains('activo')) {
                         otherBox.classList.remove('activo');
