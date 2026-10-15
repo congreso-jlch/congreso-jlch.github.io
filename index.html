@@ -28,4 +28,1114 @@
             background-image: radial-gradient(rgba(38, 30, 45, 0.12) 1px, transparent 0),
                               linear-gradient(rgba(249, 246, 229, 0.04) 1px, transparent 0);
             background-size: 20px 20px, 40px 40px;
-            color:
+            color: var(--color-crema);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navegación Responsiva */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--color-oscuro);
+            border-bottom: 4px solid var(--color-verde);
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-texto {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--color-crema);
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-crema);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: color 0.2s;
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-verde);
+        }
+
+        /* Botón destacado en el menú */
+        .nav-menu a.nav-cta {
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .nav-menu a.nav-cta:hover {
+            background-color: var(--color-crema);
+            color: var(--color-oscuro);
+        }
+
+        /* Banner Superior */
+        .hero-banner-full {
+            width: 100%;
+            background-color: var(--color-oscuro);
+            line-height: 0;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Sección de Fecha Destacada */
+        .fecha-hero {
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+            text-align: center;
+            padding: 40px 20px;
+            font-weight: 700;
+            box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .fecha-hero h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.2);
+        }
+
+        .fecha-hero p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 14px 34px;
+            background-color: var(--color-oscuro);
+            color: var(--color-crema);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: transform 0.15s, background-color 0.2s;
+        }
+
+        .hero-cta:hover {
+            background-color: #3a2e45;
+            transform: translateY(-2px);
+        }
+
+        /* Cuenta regresiva */
+        .cr-titulo {
+            margin-top: 28px;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .cuenta-regresiva {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cr-item {
+            background-color: var(--color-oscuro);
+            color: var(--color-crema);
+            border-radius: 8px;
+            min-width: 86px;
+            padding: 12px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .cr-num {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--color-verde);
+        }
+
+        .cr-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cr-fin {
+            background-color: var(--color-oscuro);
+            color: var(--color-verde);
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        /* Aviso de plazo de pago */
+        .aviso-plazo {
+            background-color: rgba(182, 187, 105, 0.12);
+            border: 1px dashed var(--color-verde);
+            color: var(--color-verde);
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Contacto */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(249, 246, 229, 0.12);
+            border-radius: 10px;
+            padding: 22px 24px;
+            text-decoration: none;
+            color: var(--color-crema);
+            transition: border-color 0.25s, transform 0.25s;
+        }
+
+        .contacto-item:hover {
+            border-color: var(--color-verde);
+            transform: translateY(-3px);
+        }
+
+        .contacto-icono {
+            font-size: 2rem;
+        }
+
+        .contacto-item small {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-verde);
+            font-weight: 700;
+        }
+
+        .contacto-item strong {
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        footer a {
+            color: var(--color-verde);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenedores de Información Ampliados */
+        .container {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card-academica {
+            background-color: #261e2d; 
+            border: 1px solid rgba(249, 246, 229, 0.1);
+            border-radius: 12px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: border-color 0.3s ease;
+        }
+
+        .card-academica:hover {
+            border-color: rgba(182, 187, 105, 0.3);
+        }
+
+        .titulo-seccion {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            border-left: 6px solid var(--color-verde);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: var(--color-crema);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* Flexbox Responsivo */
+        .convocatoria-flex {
+            display: flex;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .columna-mitad {
+            flex: 1;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Contenedor responsivo para tablas */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 15px 0;
+        }
+
+        /* Botones de acción adaptables */
+        .botones-wrapper {
+            display: flex; 
+            gap: 15px; 
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .btn-verde { 
+            background-color: var(--color-verde); 
+            color: var(--color-oscuro); 
+        }
+        .btn-verde:hover { 
+            background-color: var(--color-crema); 
+        }
+        
+        .btn-crema { 
+            background-color: var(--color-crema); 
+            color: var(--color-oscuro); 
+        }
+        .btn-crema:hover { 
+            background-color: var(--color-verde); 
+        }
+
+        /* Botón desactivado (envío de resúmenes cerrado) */
+        .btn-deshabilitado {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            background-color: rgba(249, 246, 229, 0.15);
+            color: rgba(249, 246, 229, 0.45);
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            border: 1px solid rgba(249, 246, 229, 0.1);
+            cursor: not-allowed;
+            flex: 1;
+            min-width: 180px;
+            font-family: inherit;
+        }
+
+        .aviso-cerrado {
+            background-color: rgba(249, 246, 229, 0.08);
+            border-left: 4px solid rgba(249, 246, 229, 0.4);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .aviso-cerrado .etiqueta {
+            color: rgba(249, 246, 229, 0.7);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Acordeón de Áreas Temáticas */
+        .eje-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(249, 246, 229, 0.08);
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .eje-box:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .eje-btn {
+            padding: 18px 25px;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--color-crema);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .eje-btn span {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .eje-box.activo .eje-btn span {
+            transform: rotate(180deg);
+        }
+
+        .eje-content {
+            display: none; 
+            padding: 0 25px 20px 25px;
+            font-size: 0.95rem;
+            color: rgba(249, 246, 229, 0.85);
+            border-top: 1px solid rgba(249, 246, 229, 0.05);
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .eje-content p {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* Tablas */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+        th, td { 
+            padding: 14px 15px; 
+            text-align: left; 
+            border-bottom: 1px solid rgba(255,255,255,0.08); 
+        }
+        th { 
+            background-color: rgba(0, 0, 0, 0.3); 
+            font-weight: 600;
+        }
+        td.precio {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Requisitos */
+        .previsualizacion-grande {
+            background-color: var(--color-crema);
+            color: var(--color-oscuro);
+            padding: 25px;
+            border-radius: 6px;
+            font-size: 1.05rem; 
+            border-left: 6px solid var(--color-verde);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            height: 100%;
+        }
+
+        .previsualizacion-grande h4 {
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--color-oscuro);
+        }
+
+        .previsualizacion-grande li {
+            color: var(--color-oscuro);
+            margin-bottom: 8px;
+        }
+
+        /* ========================================================
+            SECCIÓN DE PAGO / INSCRIPCIONES
+            ======================================================== */
+        .pasos-pago {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .paso {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: rgba(182, 187, 105, 0.1);
+            border: 1px dashed rgba(182, 187, 105, 0.5);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .paso-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .grid-pagos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .pago-card {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(249, 246, 229, 0.12);
+            border-radius: 10px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+
+        .pago-card:hover {
+            border-color: var(--color-verde);
+            transform: translateY(-3px);
+        }
+
+        .pago-icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .pago-card h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            color: var(--color-verde);
+        }
+
+        .pago-card .pago-desc {
+            font-size: 0.9rem;
+            color: rgba(249, 246, 229, 0.8);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .pago-opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-pago {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 14px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            line-height: 1.3;
+            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .btn-pago:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+        }
+
+        .btn-pago .btn-quien {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-pago .btn-monto {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .btn-pago .btn-accion {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.85;
+        }
+
+        .btn-pago.socio {
+            background-color: var(--color-verde);
+            color: var(--color-oscuro);
+        }
+        .btn-pago.socio:hover {
+            background-color: #cdd283;
+        }
+
+        .btn-pago.general {
+            background-color: var(--color-crema);
+            color: var(--color-oscuro);
+        }
+        .btn-pago.general:hover {
+            background-color: #ffffff;
+        }
+
+        .etiqueta-socio {
+            display: inline-block;
+            font-size: 0.7rem;
+            background-color: var(--color-oscuro);
+            color: var(--color-verde);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-bottom: 4px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nota-pago {
+            margin-top: 28px;
+            font-size: 0.88rem;
+            color: rgba(249, 246, 229, 0.75);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* Franja de logos transparente */
+        .container-logos { 
+            width: 100%; 
+            background-color: transparent !important; 
+            padding: 30px 0; 
+            margin-top: 20px;
+        }
+        .logos-img {
+            max-width: 1100px;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+            opacity: 0.95;
+        }
+
+        footer { 
+            background-color: var(--color-oscuro); 
+            padding: 40px 20px; 
+            text-align: center; 
+            font-size: 0.85rem; 
+            border-top: 2px solid rgba(249, 246, 229, 0.05);
+        }
+
+        /* ========================================================
+            MEDIA QUERIES AVANZADAS PARA MÓVILES Y TABLETS 
+            ======================================================== */
+        
+        @media (max-width: 950px) {
+            .convocatoria-flex { 
+                flex-direction: column; 
+                gap: 25px;
+            }
+            .columna-mitad {
+                width: 100%;
+            }
+            .card-academica {
+                padding: 30px 20px;
+            }
+            .fecha-hero h2 { 
+                font-size: 2rem; 
+            }
+            .grid-pagos,
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #aranceles .columna-mitad:last-child {
+                padding-left: 0 !important;
+                padding-top: 20px;
+                border-left: none !important;
+                border-top: 1px solid rgba(249, 246, 229, 0.1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 10px;
+            }
+
+            .nav-menu {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 0.75rem;
+            }
+
+            .fecha-hero h2 { 
+                font-size: 1.4rem; 
+            }
+            
+            .fecha-hero p {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                width: 100%;
+            }
+
+            .cuenta-regresiva {
+                gap: 8px;
+            }
+
+            .cr-item {
+                min-width: 70px;
+                padding: 10px 6px;
+            }
+
+            .cr-num {
+                font-size: 1.5rem;
+            }
+
+            .titulo-seccion {
+                font-size: 1.3rem;
+            }
+
+            .btn,
+            .btn-deshabilitado {
+                width: 100%;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+
+            .paso {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo-texto">III Congreso JJL Chile</a>
+            <ul class="nav-menu">
+                <li><a href="#presentacion">Presentación</a></li>
+                <li><a href="#convocatoria">Convocatoria</a></li>
+                <li><a href="#ejes">Áreas</a></li>
+                <li><a href="#aranceles">Valores</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inscripcion" class="nav-cta">Inscríbete aquí</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-banner-full">
+        <img src="./banner.jpg" alt="Banner Horizontes Plurales" class="hero-img">
+    </div>
+
+    <div class="fecha-hero">
+        <h2>2, 3 y 4 de diciembre de 2026</h2>
+        <p>Santiago de Chile • UMCE / PUC / UCSH</p>
+
+        <p class="cr-titulo">Faltan para el inicio del congreso</p>
+        <div class="cuenta-regresiva" id="cuenta-regresiva" aria-live="polite">
+            <div class="cr-item"><span class="cr-num" id="cr-dias">--</span><span class="cr-label">Días</span></div>
+            <div class="cr-item"><span class="cr-num" id="cr-horas">--</span><span class="cr-label">Horas</span></div>
+            <div class="cr-item"><span class="cr-num" id="cr-min">--</span><span class="cr-label">Minutos</span></div>
+            <div class="cr-item"><span class="cr-num" id="cr-seg">--</span><span class="cr-label">Segundos</span></div>
+        </div>
+
+        <a href="#inscripcion" class="hero-cta">💳 Inscríbete y paga tu arancel</a>
+    </div>
+
+    <div class="container">
+
+        <section class="card-academica" id="presentacion">
+            <h2 class="titulo-seccion">Presentación</h2>
+            <p>La <strong>Asociación de Jóvenes Lingüistas de Chile</strong> junto a las y los estudiantes de pregrado y posgrado de la <strong>Universidad Metropolitana de Ciencias de la Educación</strong>, la <strong>Pontificia Universidad Católica de Chile</strong> y la <strong>Universidad Católica Silva Henríquez</strong>, invitan a estudiantes de lingüística de todo Chile a participar en el encuentro académico:</p>
+            <p style="font-size: 1.15rem; text-align: center; margin: 25px 0; font-weight: 700; color: var(--color-verde); text-transform: uppercase; letter-spacing: 0.5px;">
+                "Horizontes Plurales: Nuevas miradas lingüísticas desde el Sur Global"
+            </p>
+            <p>Este espacio busca propiciar un marco de intercambio y discusión reflexiva en torno a las ciencias del lenguaje, impulsando el planteamiento de nuevas preguntas sobre los fenómenos de la disciplina e integrando la riqueza de marcos conceptuales de nuestra región.</p>
+        </section>
+
+        <section class="card-academica" id="convocatoria">
+            <h2 class="titulo-seccion">Convocatoria de Resúmenes</h2>
+            
+            <div class="convocatoria-flex">
+                <div class="columna-mitad">
+                    <div>
+                        <p>La convocatoria contempló la presentación de propuestas en las modalidades de <strong>ponencias orales académicas</strong> y <strong>pósteres académicos</strong>, evaluadas bajo sistema de arbitraje ciego. Todas las actividades y envíos se realizan en español.</p>
+                    </div>
+                    
+                    <div class="aviso-cerrado">
+                        <span class="etiqueta">Estado de la convocatoria:</span>
+                        <strong style="font-size: 1.1rem; color: var(--color-crema);">Recepción de resúmenes cerrada</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Ya se enviaron todas las cartas de aceptación. ¡Gracias a quienes participaron!</span>
+                    </div>
+
+                    <div class="botones-wrapper">
+                        <button type="button" class="btn-deshabilitado" disabled aria-disabled="true">🔒 Envío de Resúmenes Cerrado</button>
+                        <a href="./III_Congreso_JLCH_Primera_circular.pdf" download="III_Congreso_JLCH_Primera_circular.pdf" class="btn btn-crema">⬇️ Descargar 1ra Circular</a>
+                        <a href="./III_Congreso_JLCH_Segunda_circular.pdf.pdf" download="III_Congreso_JLCH_Segunda_circular.pdf" class="btn btn-crema">⬇️ Descargar 2da Circular</a>
+                    </div>
+                </div>
+
+                <div class="columna-mitad">
+                    <div class="previsualizacion-grande">
+                        <h4>🔍 Directrices de Envío (referencia)</h4>
+                        <ul style="padding-left: 15px; margin-bottom: 0;">
+                            <li><strong>Extensión:</strong> Entre 250 y 350 palabras.</li>
+                            <li><strong>Estructura obligatoria:</strong> Problematización, objetivo, metodología, hallazgos esperados y relevancia del estudio.</li>
+                            <li><strong>Formatos clave:</strong> De 3 a 6 referencias bibliográficas citadas en formato APA 7.ª edición.</li>
+                            <li><strong>Palabras clave:</strong> Entre 3 y 5 descriptores.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-academica" id="ejes">
+            <h2 class="titulo-seccion">Áreas Temáticas</h2>
+            <p style="margin-bottom:20px">Selecciona un área temática para conocer las líneas oficiales contempladas en la convocatoria:</p>
+            
+            <div class="eje-box">
+                <button class="eje-btn">Estudios del discurso, estudios críticos del discurso y sociolingüística <span>▼</span></button>
+                <div class="eje-content"><p>Línea orientada a la investigación de los aspectos sociales, políticos y estructurales del lenguaje situado en uso interactivo o institucional.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Estudios del léxico y la semántica <span>▼</span></button>
+                <div class="eje-content"><p>Área enfocada en los estudios de significado, terminología técnica, lexicografía teórica y aplicada.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Estudios de la interacción y pragmática <span>▼</span></button>
+                <div class="eje-content"><p>Análisis de los fenómenos lingüísticos en contexto real, considerando la cortesía lingüística y la intencionalidad comunicativa.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Estudios fonológicos y fonéticos <span>▼</span></button>
+                <div class="eje-content"><p>Espacio descriptivo y experimental para el análisis fonético acústico, articulatorio y los desarrollos teóricos fonológicos.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Estudios gramaticales y tipología lingüística <span>▼</span></button>
+                <div class="eje-content"><p>Investigaciones centradas en la descripción sintáctica, morfológica y morfosintáctica teórica y tipológica de las lenguas.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Lingüística computacional <span>▼</span></button>
+                <div class="eje-content"><p>Línea aplicada al Procesamiento del Lenguaje Natural (PLN), análisis asistido de datos lingüísticos y uso de corpus masivos.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Lingüística educacional y lingüística en contexto de aula <span>▼</span></button>
+                <div class="eje-content"><p>Área aplicada a las metodologías pedagógicas de la lengua, dinámicas conversacionales educativas y adquisición escolar.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Lingüística histórica y filología <span>▼</span></button>
+                <div class="eje-content"><p>Análisis diacrónico enfocado en el cambio lingüístico, la evolución de los sistemas de lenguas y el estudio crítico de textos antiguos.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Multimodalidad <span>▼</span></button>
+                <div class="eje-content"><p>Modelos analíticos orientados a la interacción de múltiples modos semióticos (texto, gestos, imágenes) en la comunicación contemporánea.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Psicolingüística y neurolingüística <span>▼</span></button>
+                <div class="eje-content"><p>Estudios cognitivos y experimentales aplicados al procesamiento mental, codificación, decodificación y bases cerebrales de la lengua.</p></div>
+            </div>
+
+            <div class="eje-box">
+                <button class="eje-btn">Otras perspectivas en lingüística teórica y aplicada <span>▼</span></button>
+                <div class="eje-content"><p>Líneas emergentes de investigación, propuestas interdisciplinares y marcos metodológicos integrales novedosos.</p></div>
+            </div>
+        </section>
+
+        <section class="card-academica" id="aranceles">
+            <h2 class="titulo-seccion">Costos e Inscripción</h2>
+            <div class="convocatoria-flex">
+                <div class="columna-mitad">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Categoría de Inscripción</th>
+                                    <th>Arancel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Estudiantes de pregrado (no asociados/as)</td>
+                                    <td class="precio">$25.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Estudiantes de pregrado asociados/as a Jóvenes Lingüistas</td>
+                                    <td class="precio">$20.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Estudiantes de posgrado o egresados/as (no asociados/as)</td>
+                                    <td class="precio">$35.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Estudiantes de posgrado o egresados/as asociados/as a Jóvenes Lingüistas</td>
+                                    <td class="precio">$28.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Asistente general</td>
+                                    <td class="precio">$20.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="color:var(--color-verde); font-weight:700; font-size:0.9rem">💡 Descuento: Los miembros activos de la Asociación de Jóvenes Lingüistas cuentan con un 20% de rebaja en los valores de expositores/as.</p>
+                </div>
+                <div class="columna-mitad" style="padding-left: 25px; border-left: 1px solid rgba(249, 246, 229, 0.1); justify-content: center;">
+                    <p>• <strong>Recepción de resúmenes:</strong> Cerrada.</p>
+                    <p>• <strong>Cartas de aceptación:</strong> Ya fueron enviadas.</p>
+                    <p style="margin-bottom: 0;">• <strong>Inscripción y pago:</strong> Disponible ahora, hasta el 25 de noviembre de 2026. 👇</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-academica" id="inscripcion">
+            <h2 class="titulo-seccion">Inscripciones y Pago</h2>
+
+            <div class="aviso-plazo">
+                ⏰ Puedes pagar tu inscripción hasta el 25 de noviembre de 2026
+            </div>
+
+            <div class="pasos-pago">
+                <div class="paso"><span class="paso-num">1</span> Elige tu categoría</div>
+                <div class="paso"><span class="paso-num">2</span> Haz clic en el botón que te corresponda</div>
+                <div class="paso"><span class="paso-num">3</span> Paga de forma segura en WebPay</div>
+            </div>
+
+            <div class="grid-pagos">
+
+                <!-- Pregrado -->
+                <div class="pago-card">
+                    <div class="pago-icono">🎓</div>
+                    <h3>Estudiantes de Pregrado</h3>
+                    <p class="pago-desc">Para quienes presentan una ponencia o póster y cursan una carrera de pregrado.</p>
+                    <div class="pago-opciones">
+                        <a href="https://www.webpay.cl/form-pay/430354" target="_blank" rel="noopener" class="btn-pago socio">
+                            <span class="etiqueta-socio">Socio/a</span>
+                            <span class="btn-quien">Asociado/a a Jóvenes Lingüistas</span>
+                            <span class="btn-monto">$20.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                        <a href="https://www.webpay.cl/form-pay/430340" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-quien">No asociado/a</span>
+                            <span class="btn-monto">$25.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Posgrado / egresados -->
+                <div class="pago-card">
+                    <div class="pago-icono">📚</div>
+                    <h3>Posgrado o Egresados/as</h3>
+                    <p class="pago-desc">Para quienes presentan una ponencia o póster y son estudiantes de posgrado o egresados/as.</p>
+                    <div class="pago-opciones">
+                        <a href="https://www.webpay.cl/form-pay/430372" target="_blank" rel="noopener" class="btn-pago socio">
+                            <span class="etiqueta-socio">Socio/a</span>
+                            <span class="btn-quien">Asociado/a a Jóvenes Lingüistas</span>
+                            <span class="btn-monto">$28.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                        <a href="https://www.webpay.cl/form-pay/430359" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-quien">No asociado/a</span>
+                            <span class="btn-monto">$35.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Asistente general -->
+                <div class="pago-card">
+                    <div class="pago-icono">🎟️</div>
+                    <h3>Asistente General</h3>
+                    <p class="pago-desc">Para quienes participan del congreso como público, sin presentar trabajo.</p>
+                    <div class="pago-opciones">
+                        <a href="https://www.webpay.cl/form-pay/430379" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-quien">Asistente general</span>
+                            <span class="btn-monto">$20.000</span>
+                            <span class="btn-accion">Pagar ahora →</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="nota-pago">🔒 Los pagos se realizan en la plataforma segura WebPay. Revisa que tu categoría sea la correcta antes de pagar.</p>
+        </section>
+
+        <section class="card-academica" id="contacto">
+            <h2 class="titulo-seccion">Contacto</h2>
+            <p>¿Tienes dudas sobre tu inscripción o el congreso? Escríbenos, estaremos felices de ayudarte.</p>
+            <div class="contacto-grid">
+                <a href="mailto:congresojlch@gmail.com" class="contacto-item">
+                    <span class="contacto-icono">✉️</span>
+                    <span>
+                        <small>Correo electrónico</small>
+                        <strong>congresojlch@gmail.com</strong>
+                    </span>
+                </a>
+                <a href="https://www.instagram.com/horizontespluralesjlch/" target="_blank" rel="noopener" class="contacto-item">
+                    <span class="contacto-icono">📸</span>
+                    <span>
+                        <small>Instagram</small>
+                        <strong>@horizontespluralesjlch</strong>
+                    </span>
+                </a>
+            </div>
+        </section>
+        
+    </div>
+
+    <footer>
+        <p>✉️ <a href="mailto:congresojlch@gmail.com">congresojlch@gmail.com</a> • 📸 <a href="https://www.instagram.com/horizontespluralesjlch/" target="_blank" rel="noopener">@horizontespluralesjlch</a></p>
+        <p>© 2026 Asociación de Jóvenes Lingüistas de Chile. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.eje-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const box = button.parentElement;
+                const content = button.nextElementSibling;
+                
+                // Cierra los otros elementos abiertos para un efecto limpio
+                document.querySelectorAll('.eje-box').forEach(otherBox => {
+                    if (otherBox !== box && otherBox.classList.contains('activo')) {
+                        otherBox.classList.remove('activo');
+                        otherBox.querySelector('.eje-content').style.display = 'none';
+                    }
+                });
+
+                // Alterna el estado del elemento clickeado
+                if (box.classList.contains('activo')) {
+                    box.classList.remove('activo');
+                    content.style.display = 'none';
+                } else {
+                    box.classList.add('activo');
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // Cuenta regresiva: 2 de diciembre de 2026, 09:00 hrs. (hora de Chile, UTC-03:00)
+        (function () {
+            const objetivo = new Date('2026-12-02T09:00:00-03:00').getTime();
+            const contenedor = document.getElementById('cuenta-regresiva');
+            const elDias = document.getElementById('cr-dias');
+            const elHoras = document.getElementById('cr-horas');
+            const elMin = document.getElementById('cr-min');
+            const elSeg = document.getElementById('cr-seg');
+            let timer;
+
+            function dos(n) {
+                return String(n).padStart(2, '0');
+            }
+
+            function actualizar() {
+                const diff = objetivo - Date.now();
+
+                if (diff <= 0) {
+                    contenedor.innerHTML = '<p class="cr-fin">🎉 ¡El congreso ya comenzó!</p>';
+                    clearInterval(timer);
+                    return;
+                }
+
+                const dias = Math.floor(diff / 86400000);
+                const horas = Math.floor((diff % 86400000) / 3600000);
+                const minutos = Math.floor((diff % 3600000) / 60000);
+                const segundos = Math.floor((diff % 60000) / 1000);
+
+                elDias.textContent = dias;
+                elHoras.textContent = dos(horas);
+                elMin.textContent = dos(minutos);
+                elSeg.textContent = dos(segundos);
+            }
+
+            actualizar();
+            timer = setInterval(actualizar, 1000);
+        })();
+    </script>
+</body>
+</html>
