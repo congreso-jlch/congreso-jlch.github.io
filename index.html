@@ -668,6 +668,17 @@
             margin-bottom: 0;
         }
 
+        /* Botones de pago desactivados */
+        button.btn-pago { border:none; font-family:inherit; width:100%; }
+        .btn-pago.deshabilitado,
+        .btn-pago.deshabilitado:hover,
+        .hero-cta.deshabilitado,
+        .hero-cta.deshabilitado:hover {
+            background-color:#5a5260; color:#d6d2c8; cursor:not-allowed;
+            transform:none; box-shadow:none;
+        }
+        .hero-cta.deshabilitado { border:none; font-family:inherit; }
+
         /* Franja de logos transparente */
         .container-logos { 
             width: 100%; 
@@ -915,7 +926,7 @@
                 <li><a href="#ejes">Áreas</a></li>
                 <li><a href="#aranceles">Valores</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#inscripcion" class="nav-cta">Inscríbete aquí</a></li>
+                <li><a href="#inscripcion" class="nav-cta">Inscripciones</a></li>
             </ul>
         </nav>
     </header>
@@ -936,7 +947,7 @@
             <div class="cr-item"><span class="cr-num" id="cr-seg">--</span><span class="cr-label">Segundos</span></div>
         </div>
 
-        <a href="#inscripcion" class="hero-cta">💳 Inscríbete y paga tu arancel</a>
+        <button type="button" class="hero-cta deshabilitado" disabled aria-disabled="true">🔒 Inscripción y pago cerrados</button>
     </div>
 
     <div class="container">
@@ -1238,7 +1249,7 @@
                 <div class="columna-mitad" style="padding-left: 25px; border-left: 1px solid rgba(249, 246, 229, 0.1); justify-content: center;">
                     <p>• <strong>Recepción de resúmenes:</strong> Cerrada.</p>
                     <p>• <strong>Cartas de aceptación:</strong> Ya fueron enviadas.</p>
-                    <p style="margin-bottom: 0;">• <strong>Inscripción y pago:</strong> Disponible ahora, hasta el 25 de noviembre de 2026. 👇</p>
+                    <p style="margin-bottom: 0;">• <strong>Inscripción y pago:</strong> Cerrados desde el término del 25 de noviembre de 2026.</p>
                 </div>
             </div>
         </section>
@@ -1247,13 +1258,7 @@
             <h2 class="titulo-seccion">Inscripciones y Pago</h2>
 
             <div class="aviso-plazo">
-                ⏰ Puedes pagar tu inscripción hasta el 25 de noviembre de 2026
-            </div>
-
-            <div class="pasos-pago">
-                <div class="paso"><span class="paso-num">1</span> Elige tu categoría</div>
-                <div class="paso"><span class="paso-num">2</span> Haz clic en el botón que te corresponda</div>
-                <div class="paso"><span class="paso-num">3</span> Paga de forma segura en WebPay</div>
+                🔒 El plazo para pagar la inscripción finalizó el 25 de noviembre de 2026
             </div>
 
             <div class="grid-pagos">
@@ -1264,17 +1269,17 @@
                     <h3>Estudiantes de Pregrado</h3>
                     <p class="pago-desc">Para quienes presentan una ponencia o póster y cursan una carrera de pregrado.</p>
                     <div class="pago-opciones">
-                        <a href="https://www.webpay.cl/form-pay/430354" target="_blank" rel="noopener" class="btn-pago socio">
+                        <button type="button" class="btn-pago socio deshabilitado" disabled aria-disabled="true">
                             <span class="etiqueta-socio">Socio/a</span>
                             <span class="btn-quien">Asociado/a a Jóvenes Lingüistas</span>
                             <span class="btn-monto">$20.000</span>
-                            <span class="btn-accion">Pagar ahora →</span>
-                        </a>
-                        <a href="https://www.webpay.cl/form-pay/430340" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-accion">🔒 Pago cerrado</span>
+                        </button>
+                        <button type="button" class="btn-pago general deshabilitado" disabled aria-disabled="true">
                             <span class="btn-quien">No asociado/a</span>
                             <span class="btn-monto">$25.000</span>
-                            <span class="btn-accion">Pagar ahora →</span>
-                        </a>
+                            <span class="btn-accion">🔒 Pago cerrado</span>
+                        </button>
                     </div>
                 </div>
 
@@ -1284,17 +1289,17 @@
                     <h3>Posgrado o Egresados/as</h3>
                     <p class="pago-desc">Para quienes presentan una ponencia o póster y son estudiantes de posgrado o egresados/as.</p>
                     <div class="pago-opciones">
-                        <a href="https://www.webpay.cl/form-pay/430372" target="_blank" rel="noopener" class="btn-pago socio">
+                        <button type="button" class="btn-pago socio deshabilitado" disabled aria-disabled="true">
                             <span class="etiqueta-socio">Socio/a</span>
                             <span class="btn-quien">Asociado/a a Jóvenes Lingüistas</span>
                             <span class="btn-monto">$28.000</span>
-                            <span class="btn-accion">Pagar ahora →</span>
-                        </a>
-                        <a href="https://www.webpay.cl/form-pay/430359" target="_blank" rel="noopener" class="btn-pago general">
+                            <span class="btn-accion">🔒 Pago cerrado</span>
+                        </button>
+                        <button type="button" class="btn-pago general deshabilitado" disabled aria-disabled="true">
                             <span class="btn-quien">No asociado/a</span>
                             <span class="btn-monto">$35.000</span>
-                            <span class="btn-accion">Pagar ahora →</span>
-                        </a>
+                            <span class="btn-accion">🔒 Pago cerrado</span>
+                        </button>
                     </div>
                 </div>
 
@@ -1304,17 +1309,17 @@
                     <h3>Asistente General</h3>
                     <p class="pago-desc">Para quienes participan del congreso como público, sin presentar trabajo.</p>
                     <div class="pago-opciones">
-                        <a href="https://www.webpay.cl/form-pay/430379" target="_blank" rel="noopener" class="btn-pago general">
+                        <button type="button" class="btn-pago general deshabilitado" disabled aria-disabled="true">
                             <span class="btn-quien">Asistente general</span>
                             <span class="btn-monto">$20.000</span>
-                            <span class="btn-accion">Pagar ahora →</span>
-                        </a>
+                            <span class="btn-accion">🔒 Pago cerrado</span>
+                        </button>
                     </div>
                 </div>
 
             </div>
 
-            <p class="nota-pago">🔒 Los pagos se realizan en la plataforma segura WebPay. Revisa que tu categoría sea la correcta antes de pagar.</p>
+            <p class="nota-pago">🔒 Los pagos en línea están cerrados. Si tienes dudas, escríbenos a <a href="mailto:congresojlch@gmail.com" style="color:var(--color-verde)">congresojlch@gmail.com</a>.</p>
         </section>
 
         <section class="card-academica" id="contacto">
